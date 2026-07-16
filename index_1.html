@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isaiah Smith — Websites & Automation for Small Businesses</title>
+<meta name="description" content="I build clean, modern websites, booking systems, and simple automations for small businesses — in days, not months. Free mockup first: you see it before you spend a dollar.">
+<style>
+  :root {
+    --bg: #0c0f14; --panel: #12161d; --panel-2: #171c25; --line: #232a36;
+    --ink: #f2f5f9; --ink-2: #aab6c5; --muted: #6d7a8b;
+    --amber: #f59e2d; --amber-d: #d9820f; --ember: #ff7a3d;
+    --radius: 16px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: -apple-system, "Segoe UI", system-ui, Roboto, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.6; }
+  a { color: var(--amber); text-decoration: none; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 22px; }
+
+  header.top { position: sticky; top: 0; z-index: 50; background: rgba(12,15,20,.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  header.top .wrap { display: flex; align-items: center; gap: 12px; padding: 15px 22px; }
+  .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.3px; }
+  .logo .mk { width: 34px; height: 34px; border-radius: 9px; background: linear-gradient(135deg, var(--amber), var(--ember)); display: flex; align-items: center; justify-content: center; color: #14100a; font-size: 15px; font-weight: 900; }
+  nav.m { margin-left: auto; display: flex; gap: 20px; font-size: 14px; font-weight: 600; }
+  nav.m a { color: var(--ink-2); }
+  nav.m a:hover { color: var(--ink); }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; font-weight: 800; font-size: 14.5px;
+    background: linear-gradient(135deg, var(--amber), var(--ember)); color: #191204;
+    padding: 12px 22px; border-radius: 999px; border: none; cursor: pointer;
+    box-shadow: 0 6px 22px rgba(245,158,45,.28);
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.ghost { background: none; color: var(--ink); border: 1.5px solid var(--line); box-shadow: none; }
+  .btn.ghost:hover { border-color: var(--muted); }
+
+  .hero { padding: 84px 0 66px; position: relative; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(700px 340px at 20% 0%, rgba(245,158,45,.13), transparent 60%),
+                radial-gradient(600px 300px at 90% 20%, rgba(255,122,61,.08), transparent 60%);
+    pointer-events: none;
+  }
+  .kick { display: inline-flex; gap: 8px; align-items: center; font-size: 12.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--amber); }
+  .hero h1 { font-size: 50px; line-height: 1.05; letter-spacing: -1.5px; font-weight: 800; margin: 16px 0; max-width: 17ch; }
+  .hero h1 em { font-style: normal; background: linear-gradient(135deg, var(--amber), var(--ember)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero p { font-size: 18px; color: var(--ink-2); max-width: 52ch; }
+  .hero .row { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
+  .hero .pill-row { display: flex; gap: 16px; margin-top: 34px; flex-wrap: wrap; font-size: 13.5px; color: var(--ink-2); }
+  .hero .pill-row span::before { content: "✓ "; color: var(--amber); font-weight: 800; }
+
+  section.pad { padding: 70px 0; }
+  .sec-head { max-width: 620px; margin-bottom: 38px; }
+  .sec-head .tag { color: var(--amber); font-weight: 800; font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; }
+  .sec-head h2 { font-size: 32px; letter-spacing: -.8px; margin-top: 8px; }
+  .sec-head p { color: var(--ink-2); margin-top: 8px; }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .step { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+  .step .n { width: 34px; height: 34px; border-radius: 50%; background: rgba(245,158,45,.14); color: var(--amber); font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+  .step h3 { font-size: 17px; margin-bottom: 7px; }
+  .step p { font-size: 14px; color: var(--ink-2); }
+
+  /* showcase */
+  .show-card {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0; overflow: hidden;
+    background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+  }
+  .show-txt { padding: 34px; }
+  .show-txt .lbl { font-size: 11.5px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--amber); }
+  .show-txt h3 { font-size: 24px; letter-spacing: -.5px; margin: 8px 0 10px; }
+  .show-txt p { color: var(--ink-2); font-size: 14.5px; margin-bottom: 10px; }
+  .show-txt ul { list-style: none; margin: 12px 0 20px; }
+  .show-txt li { font-size: 13.5px; color: var(--ink-2); padding: 3px 0 3px 20px; position: relative; }
+  .show-txt li::before { content: "→"; position: absolute; left: 0; color: var(--amber); }
+  .show-viz { background: linear-gradient(160deg, #0e2a47, #17497e); position: relative; min-height: 340px; display: flex; align-items: center; justify-content: center; padding: 30px; }
+  .mini-site { width: 100%; max-width: 340px; background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,0,0,.5); transform: rotate(-2deg); }
+  .mini-site .ms-head { background: #0e2a47; padding: 10px 12px; display: flex; align-items: center; gap: 7px; }
+  .mini-site .ms-dot { width: 18px; height: 18px; border-radius: 5px; background: #2c81c9; }
+  .mini-site .ms-name { color: #fff; font-size: 10px; font-weight: 800; }
+  .mini-site .ms-cta { margin-left: auto; background: #f26b1d; border-radius: 99px; color: #fff; font-size: 8px; font-weight: 800; padding: 4px 8px; }
+  .mini-site .ms-hero { background: linear-gradient(160deg, #123a63, #17497e); padding: 16px 12px; }
+  .mini-site .ms-hero .l1 { color: #fff; font-size: 13px; font-weight: 800; }
+  .mini-site .ms-hero .l2 { color: #ffb27d; font-size: 13px; font-weight: 800; }
+  .mini-site .ms-hero .l3 { color: #cfe0f2; font-size: 8px; margin-top: 5px; }
+  .mini-site .ms-form { background: #fff; margin: 10px 12px 14px; border-radius: 7px; box-shadow: 0 8px 20px rgba(0,0,0,.25); padding: 9px; }
+  .mini-site .ms-form .f { height: 9px; background: #eef2f7; border-radius: 3px; margin-bottom: 5px; }
+  .mini-site .ms-form .b { height: 13px; background: #f26b1d; border-radius: 4px; }
+
+  /* before / after slider */
+  .ba-frame { position: relative; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); user-select: none; }
+  .ba-pane { position: absolute; inset: 0; }
+  .ba-old { background: #d8d2c4; font-family: Georgia, "Times New Roman", serif; color: #3a3630; }
+  .ba-old .o-head { background: #6b1f1f; color: #f7e9b8; text-align: center; padding: 12px; font-size: 20px; font-weight: 700; letter-spacing: 1px; text-shadow: 1px 1px 0 #000; }
+  .ba-old .o-nav { background: #9c8f76; display: flex; gap: 2px; padding: 4px; }
+  .ba-old .o-nav span { background: #efe7d3; border: 1px solid #7a6f5a; font-size: 10px; padding: 3px 9px; }
+  .ba-old .o-body { padding: 16px; font-size: 12px; }
+  .ba-old .o-body .marquee { color: #a00; font-weight: 700; font-size: 11px; margin-bottom: 8px; }
+  .ba-old .o-body p { margin-bottom: 8px; }
+  .ba-old .o-body .counter { margin-top: 10px; font-size: 10px; color: #6b6455; }
+  .ba-old .o-img { width: 90px; height: 60px; background: repeating-linear-gradient(45deg, #b8ad97, #b8ad97 6px, #cfc5ae 6px, #cfc5ae 12px); border: 2px outset #efe7d3; float: right; margin: 0 0 6px 8px; }
+  .ba-new { background: linear-gradient(160deg, #101a2b, #16305a); color: #fff; }
+  .ba-new .n-head { display: flex; align-items: center; gap: 8px; padding: 14px 18px; }
+  .ba-new .n-mk { width: 22px; height: 22px; border-radius: 6px; background: linear-gradient(135deg, #4ba3ff, #2563eb); }
+  .ba-new .n-name { font-size: 12px; font-weight: 800; }
+  .ba-new .n-cta { margin-left: auto; background: #f59e2d; color: #191204; font-size: 10px; font-weight: 800; border-radius: 99px; padding: 5px 12px; }
+  .ba-new .n-body { padding: 26px 18px; }
+  .ba-new .n-body h4 { font-size: 24px; letter-spacing: -.5px; line-height: 1.15; max-width: 18ch; }
+  .ba-new .n-body h4 b { color: #7cc0ff; }
+  .ba-new .n-body p { font-size: 12px; color: #b9cbe4; margin-top: 8px; max-width: 40ch; }
+  .ba-new .n-row { display: flex; gap: 8px; margin-top: 14px; }
+  .ba-new .n-btn { background: #f59e2d; color: #191204; font-size: 11px; font-weight: 800; border-radius: 99px; padding: 7px 14px; }
+  .ba-new .n-btn.g { background: none; color: #fff; border: 1px solid rgba(255,255,255,.35); }
+  .ba-new .n-chips { display: flex; gap: 6px; margin-top: 16px; flex-wrap: wrap; }
+  .ba-new .n-chip { font-size: 9.5px; border: 1px solid rgba(255,255,255,.22); background: rgba(255,255,255,.08); padding: 4px 9px; border-radius: 99px; color: #dbe7f7; }
+  .ba-clip { position: absolute; inset: 0; overflow: hidden; }
+  .ba-divider { position: absolute; top: 0; bottom: 0; width: 3px; background: var(--amber); box-shadow: 0 0 18px rgba(245,158,45,.7); }
+  .ba-handle {
+    position: absolute; top: 50%; transform: translate(-50%, -50%);
+    width: 44px; height: 44px; border-radius: 50%; background: var(--amber); color: #191204;
+    display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 15px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.4); pointer-events: none;
+  }
+  .ba-tags { position: absolute; top: 12px; z-index: 5; font-size: 10.5px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; padding: 5px 11px; border-radius: 99px; }
+  .ba-range { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; }
+  .ba-note { font-size: 12.5px; color: var(--muted); margin-top: 12px; }
+
+  .svc3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .svc-c { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+  .svc-c .em { font-size: 26px; }
+  .svc-c h3 { font-size: 17px; margin: 10px 0 6px; }
+  .svc-c p { font-size: 14px; color: var(--ink-2); }
+
+  .about-card { display: grid; grid-template-columns: 260px 1fr; gap: 34px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 34px; align-items: center; }
+  .about-photo img { width: 100%; aspect-ratio: 1/1.15; object-fit: cover; border-radius: 14px; border: 2px solid rgba(245,158,45,.45); box-shadow: 0 14px 40px rgba(0,0,0,.4); }
+  .about-txt p { color: var(--ink-2); font-size: 15px; margin-bottom: 12px; }
+  .about-txt em { color: var(--ink); font-style: italic; }
+  .about-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .about-chips span { font-size: 12.5px; font-weight: 600; color: var(--ink-2); border: 1px solid var(--line); background: var(--panel-2); border-radius: 999px; padding: 7px 13px; }
+  @media (max-width: 720px) { .about-card { grid-template-columns: 1fr; } .about-photo img { max-width: 260px; } }
+  .cta-band { background: linear-gradient(135deg, rgba(245,158,45,.12), rgba(255,122,61,.07)); border: 1px solid rgba(245,158,45,.25); border-radius: var(--radius); padding: 44px; text-align: center; }
+  .cta-band h2 { font-size: 30px; letter-spacing: -.7px; margin-bottom: 10px; }
+  .cta-band p { color: var(--ink-2); max-width: 54ch; margin: 0 auto 22px; }
+
+  footer.ft { border-top: 1px solid var(--line); }
+  footer.ft .wrap { padding: 26px 22px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+  footer.ft .right { margin-left: auto; }
+
+  @media (max-width: 880px) {
+    .hero h1 { font-size: 36px; }
+    nav.m { display: none; }
+    .steps, .svc3 { grid-template-columns: 1fr; }
+    .show-card { grid-template-columns: 1fr; }
+    .show-viz { min-height: 300px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="logo"><span class="mk">IS</span> Isaiah Smith</div>
+    <nav class="m">
+      <a href="#work">Work</a>
+      <a href="#difference">The Difference</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn" href="mailto:isaiahsmith0007@gmail.com?subject=Free%20mockup%20request">Get a Free Mockup</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="kick">⚒ Independent Developer</span>
+    <h1>Websites &amp; automation for small businesses — <em>built in days, not months.</em></h1>
+    <p>Clean modern sites, online booking, ordering, and the simple automations that stop leads slipping away at 9 PM. Fixed prices. You own everything. And you see a <b style="color:var(--ink)">free mockup first</b> — before you spend a dollar.</p>
+    <div class="row">
+      <a class="btn" href="mailto:isaiahsmith0007@gmail.com?subject=Free%20mockup%20request">Get a Free Mockup</a>
+      <a class="btn ghost" href="#work">See the Work ↓</a>
+    </div>
+    <div class="pill-row">
+      <span>Fixed price, agreed up front</span>
+      <span>You own your domain &amp; site — always</span>
+      <span>Live in days</span>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">How it works</div>
+      <h2>Zero-risk by design.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>Free mockup</h3><p>Tell me about your business (or I'll have noticed something already). I build a mockup of your new site — free, yours to keep either way.</p></div>
+      <div class="step"><div class="n">2</div><h3>Build in days</h3><p>You like it, we agree a fixed price, I build the real thing fast. You review at a private link until you love it — then we flip it live with zero downtime.</p></div>
+      <div class="step"><div class="n">3</div><h3>You own it all</h3><p>Domain, site, content — yours, in writing. Optional care plan if you'd rather never think about it. Leave anytime and everything transfers cleanly.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="work">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">Concept work</div>
+      <h2>The kind of site your business deserves.</h2>
+      <p>A concept build for a fictional 47-year-old family plumbing company — the level of finish every project gets.</p>
+    </div>
+    <div class="show-card">
+      <div class="show-txt">
+        <span class="lbl">Concept · Trade Services</span>
+        <h3>Summit Plumbing Co.</h3>
+        <p>A trades site built around the two things that make the phone ring: a tap-to-call button everywhere, and an estimate form customers can send at midnight — with photos of the problem.</p>
+        <ul>
+          <li>Mobile-first with a sticky call bar</li>
+          <li>Estimate request form with photo upload</li>
+          <li>Trust signals: licenses, warranty, years served</li>
+          <li>24/7 emergency section that converts panic into calls</li>
+        </ul>
+        <a class="btn ghost" href="concept-plumbing.html" target="_blank" rel="noopener">Open the Live Concept →</a>
+      </div>
+      <div class="show-viz">
+        <div class="mini-site">
+          <div class="ms-head"><div class="ms-dot"></div><div class="ms-name">SUMMIT PLUMBING CO.</div><div class="ms-cta">CALL NOW</div></div>
+          <div class="ms-hero">
+            <div class="l1">Trusted plumbing solutions</div>
+            <div class="l2">since 1977.</div>
+            <div class="l3">Same-day service · Licensed &amp; insured · 1-year labor warranty</div>
+            <div class="ms-form"><div class="f" style="width:70%"></div><div class="f"></div><div class="f" style="width:85%"></div><div class="b"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="difference">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">Before → After</div>
+      <h2>Drag the handle. Feel the difference.</h2>
+    </div>
+    <div class="ba-frame" id="baFrame" style="height:380px">
+      <div class="ba-pane ba-old">
+        <div class="o-head">WELCOME TO OUR WEB SITE!!</div>
+        <div class="o-nav"><span>Home</span><span>About Us</span><span>Photos</span><span>Links</span><span>Guestbook</span></div>
+        <div class="o-body">
+          <div class="marquee">*** NOW OPEN MON THRU FRI — CALL FOR APPOINTMENT ***</div>
+          <div class="o-img"></div>
+          <p>Thank you for visiting our home page. We are a family owned business serving the local area. Please call us during business hours for pricing and availability. We hope to see you soon!!</p>
+          <p>This site is best viewed in Internet Explorer at 800 x 600.</p>
+          <div class="counter">You are visitor number 004,217 · Last updated 11/03/2009</div>
+        </div>
+        <span class="ba-tags" style="left:12px;background:#6b1f1f;color:#f7e9b8">Before</span>
+      </div>
+      <div class="ba-clip" id="baClip">
+        <div class="ba-pane ba-new">
+          <div class="n-head"><div class="n-mk"></div><div class="n-name">YOUR BUSINESS</div><div class="n-cta">Book Online</div></div>
+          <div class="n-body">
+            <h4>Open when your customers are — <b>even at midnight.</b></h4>
+            <p>Online booking, instant replies, and a site that looks like the quality of your work. Built fast, priced fair, owned by you.</p>
+            <div class="n-row"><span class="n-btn">Book Now</span><span class="n-btn g">See Services</span></div>
+            <div class="n-chips"><span class="n-chip">★ 4.9 rating shown live</span><span class="n-chip">Mobile-first</span><span class="n-chip">Loads in under a second</span><span class="n-chip">Found on Google</span></div>
+          </div>
+          <span class="ba-tags" style="right:12px;background:#f59e2d;color:#191204">After</span>
+        </div>
+      </div>
+      <div class="ba-divider" id="baDiv"></div>
+      <div class="ba-handle" id="baHandle">⇄</div>
+      <input class="ba-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Before and after comparison slider">
+    </div>
+    <div class="ba-note">Illustrative comparison. Real client transformations appear here — with their permission — as projects launch.</div>
+  </div>
+</section>
+
+<section class="pad" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">What I build</div>
+      <h2>Three things, done extremely well.</h2>
+    </div>
+    <div class="svc3">
+      <div class="svc-c"><div class="em">🌐</div><h3>Websites</h3><p>Modern, mobile-first sites that load fast and make it effortless to call, book, or buy. New builds or rescues of sites stuck in the past.</p></div>
+      <div class="svc-c"><div class="em">📅</div><h3>Booking &amp; Ordering</h3><p>Self-serve appointment booking, estimate requests with photo upload, online ordering that keeps the commission apps' cut in your pocket.</p></div>
+      <div class="svc-c"><div class="em">⚡</div><h3>Simple Automations</h3><p>Missed-call text-back, instant email replies, appointment reminders, deposits and payments — the little robots that catch leads while you work.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">About</div>
+      <h2>The person behind the work.</h2>
+    </div>
+    <div class="about-card">
+      <div class="about-photo">
+        <img src="isaiah.jpg" onerror="this.onerror=null;this.src='https://www.dropbox.com/scl/fi/798w3zk4tjvj8e0iveo2e/1E3A9033.jpg?rlkey=m7ue9ysfrsiuwvg7aseeddddn&st=7nnrv2oh&raw=1'" alt="Isaiah Smith">
+      </div>
+      <div class="about-txt">
+        <p>I'm Isaiah Smith. I've spent 15 years in film and television editorial — working on shows for FX, Netflix, Disney+, and CBS (<em>American Horror Stories</em>, <em>Lost in Space</em>, and a shelf more), a world where "almost right" doesn't ship and deadlines don't move.</p>
+        <p>Alongside that work, I build websites, booking systems, and automations for small businesses — the same standard, pointed at main street: big-production polish, real deadlines, details sweated so you don't have to. If your online presence doesn't match the quality of your work, that's exactly the gap I close.</p>
+        <div class="about-chips">
+          <span>🎬 15 years in film &amp; TV editorial — FX · Netflix · Disney+</span>
+          <span>🎞 Motion Picture Editors Guild, Local 700</span>
+          <span>⚓ U.S. Navy Reservist</span>
+          <span>🏆 Award-winning short-film director</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pad" id="contact">
+  <div class="wrap">
+    <div class="cta-band">
+      <h2>Want to see your business's "after"?</h2>
+      <p>Email me what you do and where you are. I'll send back a free mockup of your new site — no meetings, no pressure, yours to keep either way.</p>
+      <a class="btn" href="mailto:isaiahsmith0007@gmail.com?subject=Free%20mockup%20request&body=Hi%20Isaiah%20—%20my%20business%20is%20...">isaiahsmith0007@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="wrap">
+    <span>© 2026 Isaiah Smith · Independent Developer · 2055 Gees Mill Rd NE, Ste 319 PMB 1010, Conyers, GA 30013</span>
+    <span class="right">Websites · Booking · Automation for small businesses</span>
+  </div>
+</footer>
+
+<script>
+"use strict";
+(function () {
+  const range = document.getElementById("baRange");
+  const clip = document.getElementById("baClip");
+  const div = document.getElementById("baDiv");
+  const handle = document.getElementById("baHandle");
+  function set(v) {
+    clip.style.clipPath = "inset(0 0 0 " + v + "%)";
+    div.style.left = v + "%";
+    handle.style.left = v + "%";
+  }
+  range.addEventListener("input", () => set(range.value));
+  set(50);
+})();
+</script>
+</body>
+</html>
