@@ -157,6 +157,14 @@
     .show-card { grid-template-columns: 1fr; }
     .show-viz { min-height: 300px; }
   }
+
+  /* Phone-width header: keep name + CTA on one line (desktop windows can't get this narrow) */
+  @media (max-width: 560px) {
+    header.top .wrap { padding: 12px 14px; gap: 10px; }
+    .logo { gap: 8px; font-size: clamp(12.5px, 3.7vw, 15px); letter-spacing: -.2px; white-space: nowrap; }
+    .logo .mk { width: 30px; height: 30px; font-size: 13px; border-radius: 8px; flex: none; }
+    header.top .btn { margin-left: auto; flex: none; white-space: nowrap; padding: 10px 13px; font-size: clamp(12px, 3.4vw, 13.5px); box-shadow: 0 4px 14px rgba(245,158,45,.24); }
+  }
 </style>
 </head>
 <body>
