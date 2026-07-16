@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summit Plumbing Co. — Concept Design by Isaiah Smith</title>
+<meta name="description" content="Concept website design for a family-owned plumbing company — by Isaiah Smith, independent developer.">
+<style>
+  :root {
+    --navy: #0e2a47; --navy-2: #123a63; --steel: #2c5f92; --sky: #e8f0f8;
+    --orange: #f26b1d; --orange-d: #d95a12;
+    --ink: #142033; --ink-2: #46586e; --muted: #7b8a9c;
+    --bg: #f7f9fc; --card: #ffffff; --line: #e3e9f0;
+    --radius: 14px;
+    --shadow: 0 1px 3px rgba(14,42,71,.08), 0 8px 28px rgba(14,42,71,.09);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: -apple-system, "Segoe UI", system-ui, Roboto, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.55; }
+  img { max-width: 100%; }
+  a { color: var(--steel); text-decoration: none; }
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 22px; }
+
+  /* top strip */
+  .strip { background: var(--navy); color: #cfe0f2; font-size: 13px; }
+  .strip .wrap { display: flex; gap: 18px; align-items: center; padding: 7px 22px; }
+  .strip b { color: #fff; }
+  .strip .right { margin-left: auto; display: flex; gap: 16px; }
+  .strip a { color: #ffd9bf; font-weight: 700; }
+
+  /* header */
+  header.site {
+    background: #fff; position: sticky; top: 0; z-index: 50;
+    border-bottom: 1px solid var(--line);
+  }
+  header.site .wrap { display: flex; align-items: center; gap: 14px; padding: 14px 22px; }
+  .brand { display: flex; align-items: center; gap: 11px; }
+  .brand .mark { width: 44px; height: 44px; flex: none; }
+  .brand .n1 { font-weight: 800; font-size: 19px; letter-spacing: -.2px; line-height: 1.1; }
+  .brand .n2 { font-size: 11.5px; color: var(--muted); letter-spacing: .12em; text-transform: uppercase; }
+  nav.main { margin-left: auto; display: flex; gap: 22px; font-weight: 600; font-size: 14.5px; }
+  nav.main a { color: var(--ink-2); }
+  nav.main a:hover { color: var(--navy); }
+  .call-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--orange); color: #fff !important; font-weight: 800;
+    padding: 11px 18px; border-radius: 999px; font-size: 15px;
+    box-shadow: 0 4px 14px rgba(242,107,29,.35); white-space: nowrap;
+  }
+  .call-btn:hover { background: var(--orange-d); }
+  .call-btn svg { width: 16px; height: 16px; }
+
+  /* hero */
+  .hero {
+    background:
+      radial-gradient(1100px 500px at 85% -10%, rgba(44,95,146,.55), transparent 60%),
+      linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 55%, #17497e 100%);
+    color: #fff; overflow: hidden; position: relative;
+  }
+  .hero .pipes { position: absolute; right: -40px; bottom: -30px; opacity: .07; width: 520px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 44px; padding: 64px 22px 70px; position: relative; }
+  .kicker { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); padding: 6px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #ffe0cc; }
+  .hero h1 { font-size: 46px; line-height: 1.08; letter-spacing: -1px; margin: 18px 0 14px; font-weight: 800; }
+  .hero h1 .accent { color: #ffb27d; }
+  .hero p.sub { font-size: 18px; color: #d7e4f2; max-width: 46ch; }
+  .hero .cta-row { display: flex; gap: 12px; margin-top: 26px; flex-wrap: wrap; }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px; color: #fff; font-weight: 700;
+    border: 2px solid rgba(255,255,255,.4); padding: 11px 20px; border-radius: 999px; font-size: 15px;
+  }
+  .btn-ghost:hover { border-color: #fff; }
+  .chips { display: flex; gap: 10px; margin-top: 30px; flex-wrap: wrap; }
+  .chip { display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; font-weight: 600; color: #e4eefa; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.16); padding: 7px 13px; border-radius: 999px; }
+  .chip svg { width: 13px; height: 13px; flex: none; }
+
+  /* estimate form card */
+  .form-card {
+    background: var(--card); color: var(--ink); border-radius: var(--radius);
+    box-shadow: 0 20px 60px rgba(5,20,40,.45); padding: 26px; align-self: start;
+  }
+  .form-card h3 { font-size: 19px; letter-spacing: -.2px; }
+  .form-card .sub2 { font-size: 13px; color: var(--ink-2); margin: 4px 0 16px; }
+  .f-row { margin-bottom: 11px; }
+  .f-row label { display: block; font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+  .f-row input, .f-row select, .f-row textarea {
+    width: 100%; font: inherit; font-size: 14px; padding: 10px 12px;
+    border: 1.5px solid var(--line); border-radius: 9px; background: #fbfcfe; color: var(--ink);
+  }
+  .f-row input:focus, .f-row select:focus, .f-row textarea:focus { outline: none; border-color: var(--steel); }
+  .f-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .photo-drop {
+    border: 1.5px dashed #b9c8d8; border-radius: 9px; padding: 12px; text-align: center;
+    font-size: 12.5px; color: var(--ink-2); background: #f6f9fc; cursor: pointer;
+  }
+  .photo-drop b { color: var(--steel); }
+  .submit-btn {
+    width: 100%; font: inherit; font-weight: 800; font-size: 15px; color: #fff;
+    background: var(--orange); border: none; border-radius: 10px; padding: 13px; cursor: pointer; margin-top: 4px;
+    box-shadow: 0 4px 14px rgba(242,107,29,.3);
+  }
+  .submit-btn:hover { background: var(--orange-d); }
+  .form-note { font-size: 11.5px; color: var(--muted); text-align: center; margin-top: 9px; }
+  .success { display: none; text-align: center; padding: 30px 6px; }
+  .success .big { font-size: 42px; }
+  .success h4 { font-size: 18px; margin: 8px 0 6px; }
+  .success p { font-size: 13.5px; color: var(--ink-2); }
+
+  /* stats band */
+  .stats { background: #fff; border-bottom: 1px solid var(--line); }
+  .stats .wrap { display: grid; grid-template-columns: repeat(4, 1fr); padding: 22px; gap: 12px; }
+  .stat { text-align: center; padding: 8px 6px; }
+  .stat .v { font-size: 25px; font-weight: 800; color: var(--navy); letter-spacing: -.5px; }
+  .stat .k { font-size: 12.5px; color: var(--ink-2); font-weight: 600; }
+
+  /* sections */
+  section.pad { padding: 66px 0; }
+  .sec-head { text-align: center; max-width: 640px; margin: 0 auto 40px; }
+  .sec-head .tag { color: var(--orange-d); font-weight: 800; font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; }
+  .sec-head h2 { font-size: 32px; letter-spacing: -.6px; margin-top: 8px; }
+  .sec-head p { color: var(--ink-2); margin-top: 8px; }
+
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .svc {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 22px; box-shadow: var(--shadow); transition: transform .15s;
+  }
+  .svc:hover { transform: translateY(-3px); }
+  .svc .ic { width: 46px; height: 46px; border-radius: 12px; background: var(--sky); display: flex; align-items: center; justify-content: center; margin-bottom: 13px; }
+  .svc .ic svg { width: 24px; height: 24px; }
+  .svc h3 { font-size: 16.5px; margin-bottom: 7px; }
+  .svc ul { list-style: none; }
+  .svc li { font-size: 13.5px; color: var(--ink-2); padding: 3px 0 3px 18px; position: relative; }
+  .svc li::before { content: "✓"; position: absolute; left: 0; color: var(--orange); font-weight: 800; font-size: 12px; }
+
+  /* why band */
+  .why { background: linear-gradient(160deg, var(--navy), var(--navy-2)); color: #fff; }
+  .why .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 46px; padding: 66px 22px; align-items: center; }
+  .why h2 { font-size: 30px; letter-spacing: -.5px; margin-bottom: 14px; }
+  .why p { color: #d7e4f2; margin-bottom: 12px; font-size: 15.5px; }
+  .cert-list { list-style: none; display: grid; gap: 11px; }
+  .cert-list li { display: flex; gap: 12px; align-items: center; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.13); border-radius: 11px; padding: 13px 16px; font-weight: 600; font-size: 14.5px; }
+  .cert-list .badge { width: 34px; height: 34px; flex: none; border-radius: 9px; background: rgba(242,107,29,.2); display: flex; align-items: center; justify-content: center; }
+  .cert-list .badge svg { width: 18px; height: 18px; }
+
+  /* emergency */
+  .emergency { background: var(--orange); color: #fff; }
+  .emergency .wrap { display: flex; align-items: center; gap: 18px; padding: 26px 22px; flex-wrap: wrap; }
+  .emergency h3 { font-size: 21px; letter-spacing: -.3px; }
+  .emergency p { opacity: .92; font-size: 14.5px; }
+  .emergency .call2 {
+    margin-left: auto; background: #fff; color: var(--orange-d); font-weight: 800;
+    padding: 12px 22px; border-radius: 999px; font-size: 16px; white-space: nowrap;
+  }
+
+  /* reviews */
+  .rev-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 38px; text-align: center; max-width: 620px; margin: 0 auto; }
+  .stars { color: #f5a623; font-size: 30px; letter-spacing: 5px; }
+  .rev-card h3 { font-size: 21px; margin: 10px 0 6px; }
+  .rev-card p { color: var(--ink-2); font-size: 14.5px; max-width: 44ch; margin: 0 auto 18px; }
+  .rev-btn { display: inline-block; background: var(--navy); color: #fff; font-weight: 700; padding: 12px 24px; border-radius: 999px; font-size: 14.5px; }
+
+  /* footer */
+  footer.site { background: #0b2038; color: #b9cbdd; }
+  footer .wrap { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 34px; padding: 52px 22px 30px; }
+  footer h4 { color: #fff; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 13px; }
+  footer li { list-style: none; font-size: 14px; padding: 3.5px 0; }
+  footer a { color: #cfe0f2; }
+  .foot-brand .n1 { color: #fff; font-weight: 800; font-size: 18px; }
+  .foot-brand p { font-size: 13.5px; margin-top: 8px; max-width: 34ch; }
+  .foot-bottom { border-top: 1px solid rgba(255,255,255,.12); }
+  .foot-bottom .wrap { display: block; padding: 16px 22px; font-size: 12px; color: #8fa6bc; text-align: center; }
+  .mock-tag {
+    position: fixed; top: 14px; right: -34px; transform: rotate(38deg); z-index: 99;
+    background: var(--orange); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: .1em;
+    padding: 5px 40px; box-shadow: 0 2px 10px rgba(0,0,0,.25);
+  }
+
+  /* mobile sticky call */
+  .m-call { display: none; }
+
+  @media (max-width: 920px) {
+    nav.main { display: none; }
+    .hero .wrap { grid-template-columns: 1fr; padding: 44px 22px 54px; }
+    .hero h1 { font-size: 34px; }
+    .stats .wrap { grid-template-columns: repeat(2, 1fr); }
+    .svc-grid { grid-template-columns: 1fr; }
+    .why .wrap { grid-template-columns: 1fr; padding: 50px 22px; }
+    footer .wrap { grid-template-columns: 1fr; gap: 26px; }
+    .emergency .call2 { margin-left: 0; }
+    .m-call {
+      display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 80;
+      background: var(--orange); color: #fff; font-weight: 800; font-size: 16px;
+      align-items: center; justify-content: center; gap: 9px; padding: 15px;
+      box-shadow: 0 -4px 18px rgba(0,0,0,.18);
+    }
+    body { padding-bottom: 52px; }
+  }
+</style>
+</head>
+<body>
+<div class="mock-tag">CONCEPT</div>
+
+<div class="strip">
+  <div class="wrap">
+    <span>Mon–Fri 8:00–5:00 · <b>24/7 Emergency Service</b></span>
+    <span class="right"><span>Same-Day Service Available</span><a href="tel:5550132400">(555) 013-2400</a></span>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 48 48" fill="none">
+        <rect width="48" height="48" rx="12" fill="#0e2a47"/>
+        <path d="M24 9c-5 6.2-9 10.9-9 15.7C15 30.9 19 35 24 35s9-4.1 9-10.3C33 19.9 29 15.2 24 9z" fill="#2c81c9"/>
+        <path d="M24 9c-5 6.2-9 10.9-9 15.7C15 30.9 19 35 24 35" fill="#5aa5e0"/>
+        <path d="M19.5 26.5l4.2 4.2m0-4.2l-4.2 4.2" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+        <circle cx="30" cy="16" r="3.4" fill="#f26b1d"/>
+      </svg>
+      <div>
+        <div class="n1">Summit Plumbing Co.</div>
+        <div class="n2">your town · Since 1977</div>
+      </div>
+    </div>
+    <nav class="main">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="call-btn" href="tel:5550132400">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+      (555) 013-2400
+    </a>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="pipes" viewBox="0 0 200 200" fill="none" stroke="#fff" stroke-width="6">
+    <path d="M10 190 V80 a20 20 0 0 1 20-20 h60 a20 20 0 0 0 20-20 V-10"/>
+    <path d="M60 210 V120 a16 16 0 0 1 16-16 h70 a16 16 0 0 0 16-16 V20"/>
+    <circle cx="30" cy="80" r="6" fill="#fff"/><circle cx="110" cy="60" r="6" fill="#fff"/>
+  </svg>
+  <div class="wrap">
+    <div>
+      <span class="kicker">★ Family-Owned · your town, TN</span>
+      <h1>Trusted plumbing solutions <span class="accent">since 1977.</span></h1>
+      <p class="sub">Nearly five decades of honest work — from dripping faucets to full sewer replacements. Same-day service, a one-year labor warranty, and a real person when you call.</p>
+      <div class="cta-row">
+        <a class="call-btn" href="tel:5550132400">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>
+          Call Now
+        </a>
+        <a class="btn-ghost" href="#estimate">Request an Estimate ↓</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l7 3v6c0 5-3 8.4-7 11-4-2.6-7-6-7-11V5l7-3z"/></svg> Licensed &amp; Insured</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10h-2a8 8 0 1 1-8-8V2z"/><path d="M12 6v6l4 2-1 1.7-5-2.7V6h2z"/></svg> Same-Day Service</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 6.9H22l-5.8 4.2 2.2 6.9-6.4-4.3-6.4 4.3 2.2-6.9L2 8.9h7.6z"/></svg> PHCC Member 40+ Years</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-5 1.5 1.3L11 16l-3.5-3.5L9 12z"/><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/></svg> 1-Year Labor Warranty</span>
+      </div>
+    </div>
+
+    <div class="form-card" id="estimate">
+      <div id="formView">
+        <h3>Request a Free Estimate</h3>
+        <div class="sub2">Tell us what's going on — we'll call you back fast. Same-day appointments available.</div>
+        <form id="estForm">
+          <div class="f-grid">
+            <div class="f-row"><label>Name</label><input required placeholder="Your name"></div>
+            <div class="f-row"><label>Phone</label><input required type="tel" placeholder="(555) 555-0123"></div>
+          </div>
+          <div class="f-row"><label>Service Address</label><input placeholder="Street, City"></div>
+          <div class="f-row"><label>What do you need?</label>
+            <select>
+              <option>Drain or pipe problem</option>
+              <option>Water heater</option>
+              <option>Faucet / toilet / fixture</option>
+              <option>Gas line</option>
+              <option>Sewer service</option>
+              <option>Commercial project</option>
+              <option>Emergency — it's urgent!</option>
+            </select>
+          </div>
+          <div class="f-row"><label>Details</label><textarea rows="2" placeholder="Briefly describe the problem…"></textarea></div>
+          <div class="f-row">
+            <div class="photo-drop">📷 <b>Add photos</b> of the problem (optional) — helps us quote faster</div>
+          </div>
+          <button class="submit-btn" type="submit">Send My Estimate Request</button>
+          <div class="form-note">Prefer to talk? Call <b>(555) 013-2400</b> — Mon–Fri 8–5, emergencies anytime.</div>
+        </form>
+      </div>
+      <div class="success" id="successView">
+        <div class="big">✅</div>
+        <h4>Got it — you're on the board!</h4>
+        <p>We'll call you back shortly to confirm your estimate. If it's urgent, call us right now at <b>(555) 013-2400</b>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><div class="v">1977</div><div class="k">Serving their town since</div></div>
+    <div class="stat"><div class="v">24/7</div><div class="k">Emergency service</div></div>
+    <div class="stat"><div class="v">Same-Day</div><div class="k">Appointments available</div></div>
+    <div class="stat"><div class="v">1 Year</div><div class="k">Labor warranty</div></div>
+  </div>
+</div>
+
+<section class="pad" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="tag">What we do</div>
+      <h2>Every pipe, drain, and water heater — handled.</h2>
+      <p>Residential and commercial plumbing across the whole service area.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="#2c5f92"><path d="M12 2c-3 3.8-6 6.9-6 10a6 6 0 0 0 12 0c0-3.1-3-6.2-6-10z"/></svg></div>
+        <h3>Drains &amp; Pipes</h3>
+        <ul><li>Clogged drain cleaning</li><li>Leak detection</li><li>Burst pipe emergency repair</li><li>Repiping &amp; replacement</li></ul>
+      </div>
+      <div class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="#2c5f92"><rect x="7" y="2" width="10" height="17" rx="3"/><path d="M10 19h4v3h-4z"/><circle cx="12" cy="7" r="2" fill="#e8f0f8"/></svg></div>
+        <h3>Water Heaters</h3>
+        <ul><li>Repair &amp; replacement</li><li>Tankless water heaters</li><li>Upgrades &amp; installs</li></ul>
+      </div>
+      <div class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="#2c5f92"><path d="M12 2c2 3 5 6.4 5 9.5a5 5 0 0 1-10 0C7 8.4 10 5 12 2z" fill="#f26b1d"/><path d="M12 22a4 4 0 0 1-4-4h8a4 4 0 0 1-4 4z"/></svg></div>
+        <h3>Gas Line Services</h3>
+        <ul><li>Gas line installation</li><li>Gas line repair</li><li>Natural gas certified</li></ul>
+      </div>
+      <div class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="#2c5f92"><circle cx="12" cy="12" r="9" fill="none" stroke="#2c5f92" stroke-width="2"/><circle cx="12" cy="12" r="3.4"/><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="#2c5f92" stroke-width="2"/></svg></div>
+        <h3>Sewer Services</h3>
+        <ul><li>Camera inspection</li><li>Line cleaning &amp; repair</li><li>New sewer installation</li></ul>
+      </div>
+      <div class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="#2c5f92"><path d="M21.7 18.3l-5.2-5.2a6.5 6.5 0 0 0-8-8L12 8.6 8.6 12 5.1 8.5a6.5 6.5 0 0 0 8 8l5.2 5.2a1 1 0 0 0 1.4 0l2-2a1 1 0 0 0 0-1.4z"/></svg></div>
+        <h3>Installation &amp; Repair</h3>
+        <ul><li>Faucets, sinks &amp; toilets</li><li>Showers &amp; fixtures</li><li>Sump pumps &amp; disposals</li></ul>
+      </div>
+      <div class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="#2c5f92"><path d="M3 21V8l7-5v18H3zm9 0V10l9 4v7h-9z"/><rect x="5.5" y="10" width="2" height="2" fill="#e8f0f8"/><rect x="5.5" y="14" width="2" height="2" fill="#e8f0f8"/></svg></div>
+        <h3>Commercial Plumbing</h3>
+        <ul><li>New construction</li><li>Sewer tie-ins</li><li>Storm water drainage</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div>
+      <h2>Third-generation trust, modern-day service.</h2>
+      <p>Summit Plumbing has been family-owned and hometown-proud since 1977. We show up when we say we will, quote honestly, and stand behind every job with a one-year labor warranty.</p>
+      <p>From a dripping faucet to a full commercial build-out, you get the same thing: licensed pros who treat your place like their own.</p>
+    </div>
+    <ul class="cert-list">
+      <li><span class="badge"><svg viewBox="0 0 24 24" fill="#ffb27d"><path d="M12 2l7 3v6c0 5-3 8.4-7 11-4-2.6-7-6-7-11V5l7-3z"/></svg></span> Fully State Licensed &amp; Insured</li>
+      <li><span class="badge"><svg viewBox="0 0 24 24" fill="#ffb27d"><path d="M9 12l2 2 4-5 1.5 1.3L11 16l-3.5-3.5z"/><circle cx="12" cy="12" r="10" fill="none" stroke="#ffb27d" stroke-width="2"/></svg></span> Backflow Prevention Certified</li>
+      <li><span class="badge"><svg viewBox="0 0 24 24" fill="#ffb27d"><path d="M12 2c2 3 5 6.4 5 9.5a5 5 0 0 1-10 0C7 8.4 10 5 12 2z"/></svg></span> Natural Gas Piping Certified</li>
+      <li><span class="badge"><svg viewBox="0 0 24 24" fill="#ffb27d"><path d="M12 2l2.4 6.9H22l-5.8 4.2 2.2 6.9-6.4-4.3-6.4 4.3 2.2-6.9L2 8.9h7.6z"/></svg></span> PHCC Member — 40+ Years</li>
+    </ul>
+  </div>
+</section>
+
+<div class="emergency">
+  <div class="wrap">
+    <div>
+      <h3>Burst pipe at 2 AM? We answer.</h3>
+      <p>24/7 emergency service across the whole service area.</p>
+    </div>
+    <a class="call2" href="tel:5550132400">☎ (555) 013-2400</a>
+  </div>
+</div>
+
+<section class="pad" id="reviews">
+  <div class="wrap">
+    <div class="rev-card">
+      <div class="stars">★★★★★</div>
+      <h3>A reputation like this deserves a website like this.</h3>
+      <p>Read what real customers say about Summit Plumbing — and when we've earned it, tell us how we did.</p>
+      <a class="rev-btn" href="#" onclick="return false">Read Our Reviews →</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site" id="contact">
+  <div class="wrap">
+    <div class="foot-brand">
+      <div class="n1">Summit Plumbing Co.</div>
+      <p>Family-owned plumbing, serving their city and surrounding areas since 1977.</p>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li>📍 123 Trade Street, Anytown, USA</li>
+        <li>☎ <a href="tel:5550132400">(555) 013-2400</a></li>
+        <li>🕗 Mon–Fri 8:00 AM – 5:00 PM</li>
+        <li>🚨 Emergencies: 24/7</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Credentials</h4>
+      <ul>
+        <li>Fully State Licensed &amp; Insured</li>
+        <li>Backflow Prevention Certified</li>
+        <li>Natural Gas Piping Certified</li>
+        <li>PHCC Member 40+ Years</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="wrap">Design mockup prepared for Summit Plumbing Co. · by Isaiah Smith, independent developer · isaiahsmith0007@gmail.com · This is a free design concept, not the live website.</div>
+  </div>
+</footer>
+
+<a class="m-call" href="tel:5550132400">☎ Tap to Call — (555) 013-2400</a>
+
+<script>
+"use strict";
+document.getElementById("estForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  document.getElementById("formView").style.display = "none";
+  document.getElementById("successView").style.display = "block";
+});
+</script>
+</body>
+</html>
