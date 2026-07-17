@@ -158,6 +158,13 @@
   footer.ft { border-top: 1px solid var(--line); }
   footer.ft .wrap { padding: 26px 22px; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
   footer.ft .right { margin-left: auto; }
+  footer.ft .addr::before { content: "· "; }
+  footer.ft .addr::after { content: ","; }
+  @media (max-width: 640px) {
+    footer.ft .wrap { flex-direction: column; text-align: center; gap: 5px; }
+    footer.ft .addr::before, footer.ft .addr::after { content: none; }
+    footer.ft .right { margin-left: 0; margin-top: 9px; }
+  }
 
   @media (max-width: 880px) {
     .hero h1 { font-size: 36px; }
@@ -349,7 +356,9 @@
 
 <footer class="ft">
   <div class="wrap">
-    <span>© 2026 Isaiah Jeremiah Smith · Independent Developer · 2055 Gees Mill Rd NE, Ste 319 PMB 1010, Conyers, GA 30013</span>
+    <span>© 2026 Isaiah Jeremiah Smith · Independent Developer</span>
+    <span class="addr">2055 Gees Mill Rd NE, Ste 319 PMB 1010</span>
+    <span class="city">Conyers, GA 30013</span>
     <span class="right">Websites · Booking · Automation for small businesses</span>
   </div>
 </footer>
