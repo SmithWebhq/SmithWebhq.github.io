@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0E0B09">
+<meta name="description" content="Pearlz BBQ in Haughton, Louisiana. Ribs, brisket, chicken and sausage plates with sides, from $12. Catering for events around Haughton, Bossier City and Shreveport.">
+<title>Pearlz BBQ | Haughton, Louisiana</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2231%22%20fill%3D%22%2317120F%22%2F%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2229%22%20fill%3D%22none%22%20stroke%3D%22%23E2571F%22%20stroke-width%3D%223%22%2F%3E%3Cpath%20d%3D%22M14%2044%20A20%2020%200%200%200%2050%2044%22%20fill%3D%22none%22%20stroke%3D%22%23F2B237%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%2F%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2228%22%20r%3D%2211%22%20fill%3D%22%23F7F0E4%22%2F%3E%3Ccircle%20cx%3D%2228%22%20cy%3D%2224%22%20r%3D%223.4%22%20fill%3D%22%23FFFFFF%22%20opacity%3D%22.85%22%2F%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Graduate&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --char:#17120F;--char-2:#0E0B09;
+  --ember:#E2571F;--ember-dk:#B8410F;--gold:#F2B237;
+  --cream:#F7F0E4;
+  --card:#221A15;--card-2:#1A1410;
+  --muted:rgba(247,240,228,.62);--muted-2:rgba(247,240,228,.42);
+  --line:rgba(247,240,228,.14);--line-2:rgba(247,240,228,.08);
+  --maxw:1180px;
+  --coals:linear-gradient(90deg,#B8410F,#E2571F 18%,#F2B237 40%,#E2571F 58%,#B8410F 78%,#E2571F);
+  --sheen:linear-gradient(to bottom,rgba(255,255,255,.28),rgba(255,255,255,.03) 45%,rgba(0,0,0,.3));
+  --shadow:0 18px 44px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-anchor:none}
+body{
+  margin:0;font-family:"Inter",system-ui,Arial,sans-serif;color:var(--cream);line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  background:
+    radial-gradient(1100px 560px at 82% -10%,rgba(226,87,31,.16),transparent 58%),
+    radial-gradient(820px 560px at 2% 6%,rgba(242,178,55,.10),transparent 55%),
+    var(--char);
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0;line-height:1.04;letter-spacing:-.01em}
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-left:max(18px,env(safe-area-inset-left));padding-right:max(18px,env(safe-area-inset-right))}
+.disp{font-family:"Alfa Slab One",Georgia,serif;font-weight:400}
+.eyebrow{font-family:"Graduate",serif;text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;color:var(--ember);margin:0 0 .7rem}
+.section{padding:clamp(3.2rem,8vw,5.6rem) 0}
+.section-head{max-width:660px;margin-bottom:2.2rem}
+.section-head h2{font-family:"Alfa Slab One",Georgia,serif;font-weight:400;font-size:clamp(1.75rem,5vw,2.8rem)}
+.section-head p{color:var(--muted);margin:.9rem 0 0;font-size:1.02rem}
+:where(section)[id]{scroll-margin-top:82px}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;font-weight:800;font-size:1.02rem;text-decoration:none;padding:.86em 1.5em;border-radius:13px;border:2px solid transparent;cursor:pointer;line-height:1;font-family:inherit;transition:transform .12s ease,background .18s ease,border-color .18s ease,box-shadow .18s ease}
+.btn:active{transform:translateY(1px)}
+.btn--ember{background:var(--ember);color:#fff;box-shadow:0 8px 22px rgba(226,87,31,.36)}
+.btn--ember:hover{background:var(--ember-dk);box-shadow:0 10px 26px rgba(226,87,31,.44)}
+.btn--ghost{background:rgba(247,240,228,.03);color:var(--cream);border-color:var(--line)}
+.btn--ghost:hover{border-color:var(--cream);background:rgba(247,240,228,.07)}
+.btn--sm{font-size:.88rem;padding:.62em 1.05em;border-radius:11px}
+.btn--wide{width:100%}
+
+/* ---------- note strip from Isaiah ---------- */
+.notestrip{position:relative;z-index:60;background:linear-gradient(180deg,#2a1f16,#1f1710);border-bottom:1px solid rgba(242,178,55,.32)}
+.notestrip-in{display:flex;align-items:center;gap:.9rem;padding:.75rem 0;flex-wrap:wrap}
+.notestrip .tag{font-family:"Graduate",serif;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#2a1c0c;background:var(--gold);border-radius:6px;padding:.26rem .55rem;flex:0 0 auto}
+.notestrip p{margin:0;font-size:.9rem;color:rgba(247,240,228,.9);flex:1 1 240px;min-width:0}
+.notestrip button{flex:0 0 auto;font:inherit;font-size:.78rem;font-weight:700;color:var(--muted);background:none;border:1px solid var(--line);border-radius:9px;padding:.4rem .7rem;cursor:pointer}
+.notestrip button:hover{color:var(--cream);border-color:var(--cream)}
+html.note-off .notestrip{display:none}
+
+/* ---------- coals divider ---------- */
+.coal-div{height:10px;width:100%;background:var(--sheen),var(--coals);box-shadow:0 0 26px rgba(226,87,31,.35),inset 0 1px 0 rgba(255,255,255,.2),inset 0 -1px 0 rgba(0,0,0,.45)}
+
+/* ---------- header ---------- */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(14,11,9,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line-2)}
+.hdr-in{display:flex;align-items:center;gap:1rem;height:66px}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;margin-right:auto}
+.brand-mark{width:40px;height:40px;flex:0 0 auto;display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.5))}
+.brand-mark svg{width:100%;height:100%;display:block}
+.brand-name{font-family:"Alfa Slab One",Georgia,serif;font-size:1rem;color:var(--cream);line-height:1}
+.brand-name .z{color:var(--ember)}
+.nav{display:none;gap:1.4rem;align-items:center;margin-inline:auto}
+.nav a{font-size:.9rem;font-weight:600;color:var(--muted);text-decoration:none;letter-spacing:.02em;transition:color .15s}
+.nav a:hover{color:var(--cream)}
+.hdr .btn{white-space:nowrap}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:clamp(2.4rem,7vw,4.6rem) 0 clamp(2.2rem,5vw,3.2rem)}
+.hero-grid{display:grid;gap:clamp(2rem,4vw,3rem);align-items:center}
+.hero h1{font-family:"Alfa Slab One",Georgia,serif;font-weight:400;font-size:clamp(2.5rem,9.5vw,4.9rem);line-height:.98;letter-spacing:-.02em}
+.hero h1 .l2{color:var(--ember);display:block}
+.hero .sub{font-size:clamp(1.05rem,2.4vw,1.26rem);color:var(--cream);max-width:36ch;margin:1.3rem 0 0}
+.hero .meta{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;margin:1.5rem 0 0}
+.chip{display:inline-flex;align-items:center;gap:.5rem;background:rgba(247,240,228,.05);border:1px solid var(--line);border-radius:999px;padding:.5rem .9rem;font-size:.86rem;font-weight:600;color:var(--cream)}
+.chip .n{font-family:"Graduate",serif;font-size:.98rem}
+.glow{display:inline-flex;align-items:center;gap:.5rem;font-family:"Graduate",serif;font-size:.8rem;letter-spacing:.12em;color:var(--gold);border:2px solid rgba(242,178,55,.75);border-radius:999px;padding:.5rem 1rem;text-transform:uppercase;background:rgba(242,178,55,.06);text-shadow:0 0 8px rgba(242,178,55,.7);box-shadow:0 0 14px rgba(242,178,55,.28),inset 0 0 12px rgba(242,178,55,.16)}
+.glow .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold),0 0 14px var(--gold);animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.8rem;margin:1.7rem 0 0}
+
+/* ---------- photo slots ---------- */
+.ph{position:relative;overflow:hidden;border-radius:18px;border:1px dashed rgba(247,240,228,.28);background:radial-gradient(120% 120% at 50% 20%,#2d211a,var(--char-2));box-shadow:var(--shadow)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}
+.ph::before{content:"";position:absolute;inset:0;z-index:0;opacity:.14;background:var(--coals)}
+.ph::after{content:attr(data-mono);position:absolute;inset:0;z-index:1;display:grid;place-items:center;font-family:"Graduate",serif;color:rgba(247,240,228,.55);font-size:clamp(1.2rem,5vw,2rem);letter-spacing:.14em;text-align:center;padding:0 1rem}
+.ph .slot-lbl{position:absolute;z-index:3;left:50%;bottom:12px;transform:translateX(-50%);font-size:.68rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(247,240,228,.5);background:rgba(14,11,9,.6);border:1px solid var(--line);border-radius:999px;padding:.24rem .6rem;white-space:nowrap}
+.hero-photo{position:relative}
+.hero-photo .ph{aspect-ratio:3/2}
+.floatchip{position:absolute;right:-8px;bottom:16px;z-index:4;transform:rotate(-5deg);display:flex;align-items:center;gap:.55rem;padding:.5rem .85rem;overflow:hidden;background:linear-gradient(158deg,#f2661f,#E2571F 48%,#b8410f);border:2px solid var(--cream);border-radius:13px;box-shadow:0 12px 26px rgba(226,87,31,.5),inset 0 1px 0 rgba(255,255,255,.35)}
+.floatchip>*{position:relative;z-index:1}
+.floatchip::after{content:"";position:absolute;z-index:2;inset:3px;border:1.4px dashed rgba(247,240,228,.6);border-radius:9px;pointer-events:none}
+.floatchip .ct{display:flex;flex-direction:column;line-height:1.05}
+.floatchip .ct b{font-family:"Graduate",serif;font-weight:400;color:var(--cream);font-size:.9rem;letter-spacing:.05em}
+.floatchip .ct i{font-style:normal;font-size:.58rem;color:rgba(255,247,241,.9);letter-spacing:.06em;text-transform:uppercase;margin-top:2px}
+.floatchip .pr{font-family:"Alfa Slab One",Georgia,serif;color:var(--cream);font-size:1.1rem;margin-left:.2rem}
+
+/* ---------- sample banner ---------- */
+.sample-note{display:flex;align-items:flex-start;gap:.7rem;padding:.85rem 1.1rem;border:1px dashed rgba(242,178,55,.5);background:rgba(242,178,55,.07);border-radius:14px;margin-bottom:1.6rem}
+.sample-note .pill{font-family:"Graduate",serif;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#2a1c0c;background:var(--gold);border-radius:6px;padding:.24rem .5rem;flex:0 0 auto;margin-top:.1rem}
+.sample-note p{margin:0;font-size:.9rem;color:rgba(247,240,228,.86)}
+
+/* ---------- feature plate ---------- */
+.feature{position:relative;overflow:hidden;border-radius:20px;padding:1.7rem 1.7rem 1.7rem 2.4rem;background:radial-gradient(90% 130% at 100% 0%,rgba(226,87,31,.2),transparent 55%),linear-gradient(180deg,var(--card),var(--card-2));border:1px solid var(--line);box-shadow:var(--shadow)}
+.feature::before{content:"";position:absolute;left:0;top:0;bottom:0;width:10px;background:var(--sheen),var(--coals)}
+.feature-top{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+.feature .badge{display:inline-flex;align-items:center;gap:.5rem;font-family:"Graduate",serif;letter-spacing:.14em;text-transform:uppercase;font-size:.72rem;color:#fff;background:var(--ember);padding:.4rem .8rem;border-radius:999px}
+.feature .tag{font-size:.72rem;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:.34rem .7rem}
+.feature h3{font-family:"Alfa Slab One",Georgia,serif;font-weight:400;font-size:clamp(1.6rem,5vw,2.2rem);margin:1.05rem 0 .2rem}
+.feature .desc{color:var(--cream);max-width:46ch;margin:.4rem 0 0}
+.feature-foot{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:1.4rem}
+.price-big{font-family:"Alfa Slab One",Georgia,serif;font-weight:400;font-size:clamp(2.4rem,8vw,3.4rem);line-height:.9;color:var(--cream)}
+.price-big .cur{color:var(--ember);font-size:.55em;vertical-align:.32em;margin-right:.05em}
+.price-big .dur{display:block;font-family:"Inter",sans-serif;font-size:.78rem;font-weight:600;color:var(--muted);margin-top:.4rem;letter-spacing:.02em}
+
+/* ---------- menu lists ---------- */
+.menu-block{margin-top:2.2rem}
+.menu-block h3{font-family:"Graduate",serif;font-weight:400;font-size:.86rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.2rem}
+.menu-block .bnote{color:var(--muted);font-size:.88rem;margin:.15rem 0 0}
+.svc-list{display:grid;gap:0;margin-top:1rem;border-top:1px solid var(--line-2)}
+.svc{display:flex;align-items:baseline;gap:.4rem;padding:.8rem 0;border-bottom:1px solid var(--line-2)}
+.svc .info{display:flex;flex-direction:column;min-width:0}
+.svc .nm{font-weight:600;font-size:1.02rem;color:var(--cream)}
+.svc .det{font-size:.76rem;color:var(--muted);font-weight:500;margin-top:2px}
+.svc .dots{flex:1 1 auto;margin:0 .4rem;border-bottom:2px dotted rgba(247,240,228,.24);transform:translateY(-.32em)}
+.svc .pr{font-weight:800;font-size:1.05rem;color:var(--cream);font-variant-numeric:tabular-nums;white-space:nowrap}
+.sides-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:.6rem;margin-top:1rem}
+.side{display:flex;align-items:center;gap:.55rem;padding:.7rem .9rem;border:1px solid var(--line);border-radius:12px;background:rgba(247,240,228,.03);font-size:.95rem;font-weight:600}
+.side .dot{width:7px;height:7px;border-radius:50%;background:var(--ember);flex:0 0 auto}
+.finenote{margin-top:1.6rem;font-size:.86rem;color:var(--muted-2)}
+.finenote b{color:var(--muted);font-weight:600}
+
+/* ---------- panels / schedule ---------- */
+.panel{background:linear-gradient(180deg,var(--card),var(--card-2));border:1px solid var(--line);border-radius:18px;padding:1.5rem}
+.panel h3{font-family:"Alfa Slab One",Georgia,serif;font-weight:400;font-size:1.12rem;margin-bottom:.9rem}
+.two-grid{display:grid;gap:1.4rem}
+.sched{list-style:none;margin:0;padding:0}
+.sched li{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px solid var(--line-2)}
+.sched li:last-child{border-bottom:0}
+.sched .day{color:var(--cream);font-weight:700;letter-spacing:.02em;flex:0 0 auto}
+.sched .spot{text-align:right;color:rgba(247,240,228,.82);font-size:.94rem}
+.sched .spot b{display:block;color:var(--cream);font-weight:700}
+.sched .spot.off{color:var(--muted-2);font-weight:500}
+.sched li.today{margin:.2rem -1rem;padding:.75rem 1rem;background:rgba(226,87,31,.13);border:1px solid rgba(226,87,31,.42);border-radius:12px}
+.sched li.today .day{color:var(--cream)}
+.day-tag{display:inline-block;margin-left:.55rem;font-family:"Graduate",serif;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--ember);padding:.16rem .5rem;border-radius:6px;vertical-align:middle}
+.sched li.is-open .day-tag{background:#1f7a3d}
+.addr{font-size:1.04rem;color:var(--cream);font-style:normal;line-height:1.55}
+.addr .pin{color:var(--ember)}
+.slot{margin-top:1rem;padding:.9rem 1rem;border:1px dashed rgba(247,240,228,.28);border-radius:12px;color:var(--muted);font-size:.92rem;background:rgba(247,240,228,.02)}
+.slot b{color:rgba(247,240,228,.8);font-weight:700}
+
+/* ---------- catering form ---------- */
+.cater-grid{display:grid;gap:1.4rem}
+.form-row{display:grid;gap:.9rem}
+.field{display:flex;flex-direction:column;gap:.35rem}
+.field label{font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.field input,.field textarea{font:inherit;font-size:1rem;color:var(--cream);background:rgba(247,240,228,.04);border:1px solid var(--line);border-radius:11px;padding:.72rem .85rem}
+.field input:focus,.field textarea:focus{outline:2px solid var(--ember);outline-offset:1px;border-color:transparent}
+.field textarea{min-height:96px;resize:vertical}
+.meats{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.2rem}
+.meats label{display:inline-flex;align-items:center;gap:.45rem;font-size:.9rem;font-weight:600;color:var(--cream);text-transform:none;letter-spacing:0;border:1px solid var(--line);border-radius:999px;padding:.45rem .8rem;cursor:pointer;background:rgba(247,240,228,.03)}
+.meats input{accent-color:var(--ember);width:15px;height:15px}
+.form-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.2rem;align-items:center}
+.form-hint{font-size:.84rem;color:var(--muted-2);margin:.9rem 0 0}
+#fbSend{display:none}
+#fbSend.on{display:inline-flex}
+
+/* ---------- reviews ---------- */
+.quotes{columns:3 220px;column-gap:14px}
+.q{break-inside:avoid;-webkit-column-break-inside:avoid;margin:0 0 14px;display:inline-block;width:100%;background:linear-gradient(180deg,rgba(247,240,228,.045),rgba(247,240,228,.015));border:1px solid var(--line);border-radius:16px;padding:1.15rem 1.25rem 1rem;position:relative}
+.q::before{content:"\201C";position:absolute;top:-.02em;left:.42rem;font-family:"Alfa Slab One",serif;font-size:2.5rem;color:var(--ember);opacity:.42;line-height:1}
+.q .smp{position:absolute;top:.8rem;right:.8rem;font-family:"Graduate",serif;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:#2a1c0c;background:var(--gold);border-radius:5px;padding:.16rem .42rem}
+.q p{margin:.1rem 0 .9rem;font-size:1rem;color:var(--cream);padding-left:1.15rem;padding-right:3.6rem}
+.q .who{display:flex;align-items:center;gap:.55rem;padding-left:1.15rem}
+.q .who .ini{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--ember);color:#fff;font-weight:800;font-size:.76rem;flex:0 0 auto}
+.q .who .nm{font-weight:700;font-size:.9rem}
+.q .who .src{color:var(--muted);font-size:.74rem}
+
+/* ---------- about ---------- */
+.about-card{background:linear-gradient(180deg,var(--card),var(--card-2));border:1px solid var(--line);border-radius:20px;padding:clamp(1.6rem,4vw,2.5rem);box-shadow:var(--shadow)}
+.about-card h2{font-family:"Alfa Slab One",Georgia,serif;font-weight:400;font-size:clamp(1.8rem,5vw,2.7rem);margin-bottom:.9rem}
+.about-card p{color:var(--cream);max-width:60ch;margin:.9rem 0 0;font-size:1.05rem}
+.about-card p.lead{color:var(--muted)}
+.about-tags{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.5rem}
+.about-tags span{font-size:.82rem;font-weight:600;color:var(--cream);background:rgba(247,240,228,.05);border:1px solid var(--line);padding:.45rem .85rem;border-radius:999px}
+.events{margin-top:1.4rem;border-top:1px solid var(--line-2);padding-top:1.2rem}
+.events .ev{display:flex;gap:.8rem;align-items:flex-start;font-size:.95rem;color:rgba(247,240,228,.86)}
+.events .ev .yr{font-family:"Graduate",serif;color:var(--gold);font-size:.8rem;letter-spacing:.06em;flex:0 0 auto;padding-top:.15rem}
+
+/* ---------- gallery ---------- */
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.gal .ph{aspect-ratio:1/1;border-radius:14px}
+
+/* ---------- sticky bar / footer / toast ---------- */
+.orderbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:flex;gap:.7rem;align-items:center;padding:.6rem .8rem calc(.6rem + env(safe-area-inset-bottom));background:rgba(14,11,9,.95);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid var(--line)}
+.orderbar::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--sheen),var(--coals)}
+.orderbar .lbl{font-size:.72rem;line-height:1.15;color:var(--muted)}
+.orderbar .lbl b{display:block;color:var(--cream);font-family:"Graduate",serif;font-weight:400;font-size:.82rem}
+.orderbar .btn{flex:1}
+.foot{position:relative;margin-top:2rem;border-top:10px solid transparent;border-image:var(--coals) 10;background:var(--char-2)}
+.foot-in{padding:2.6rem 0 2.4rem}
+.foot-top{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.3rem;margin-bottom:1.8rem}
+.foot .brand-name{font-size:1.1rem}
+.foot-loc{color:var(--muted);font-family:"Inter",sans-serif;font-weight:600;font-size:.9rem}
+.foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:.7rem 1.5rem;margin:0;padding:0}
+.fl-item{display:inline-flex;flex-direction:column;align-items:center;gap:.42rem;width:70px;text-decoration:none;color:var(--cream);background:none;border:0;padding:0;cursor:pointer;font:inherit}
+.fl-ic{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:rgba(247,240,228,.04);border:1px solid var(--line);transition:border-color .15s,background .15s,transform .12s}
+.fl-item:hover .fl-ic,.fl-item:focus-visible .fl-ic{border-color:var(--cream);background:rgba(247,240,228,.08)}
+.fl-item:active .fl-ic{transform:translateY(1px)}
+.fl-item:focus{outline:none}
+.fl-item:focus-visible .fl-ic{outline:2px solid var(--ember);outline-offset:2px}
+.fl-ic svg{width:20px;height:20px;fill:currentColor}
+.fl-lb{font-size:.72rem;font-weight:600;color:var(--muted);line-height:1}
+.disclaimer{color:var(--muted-2);font-size:.8rem;line-height:1.7;max-width:80ch;border-top:1px solid var(--line-2);padding-top:1.4rem;text-align:center;margin-inline:auto}
+.disclaimer a{color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:92px;transform:translate(-50%,12px);z-index:90;background:var(--cream);color:var(--char-2);font-weight:700;font-size:.85rem;padding:.6rem 1.05rem;border-radius:999px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- reveal ---------- */
+html.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+html.js .reveal.in{opacity:1;transform:none}
+html.js .stg>*:nth-child(2){transition-delay:.07s}
+html.js .stg>*:nth-child(3){transition-delay:.14s}
+html.js .stg>*:nth-child(4){transition-delay:.21s}
+html.js .stg>*:nth-child(5){transition-delay:.28s}
+html.js .stg>*:nth-child(6){transition-delay:.35s}
+
+/* ---------- breakpoints ---------- */
+@media (max-width:819px){
+  body{padding-bottom:78px}
+  .hero-copy{text-align:center}
+  .hero .sub{margin-left:auto;margin-right:auto}
+  .hero .meta,.hero .cta{justify-content:center}
+}
+@media (min-width:620px){.gal{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:820px){
+  .nav{display:flex}
+  .orderbar{display:none}
+  .toast{bottom:28px}
+  .hero-grid{grid-template-columns:1.06fr .94fr}
+  .hero-photo .ph{aspect-ratio:1/1}
+  .two-grid{grid-template-columns:1fr 1fr;align-items:start}
+  .cater-grid{grid-template-columns:1.15fr .85fr;align-items:start}
+  .form-row.pair{grid-template-columns:1fr 1fr}
+  .about-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:1.4rem;align-items:stretch}
+  .svc-list.two-col{grid-auto-flow:column;grid-template-rows:repeat(3,auto);column-gap:3.2rem}
+  .svc-list.two-col .svc:nth-child(3),.svc-list.two-col .svc:nth-child(6){border-bottom:0}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  html.js .reveal{opacity:1;transform:none;transition:none}
+  .glow .dot{animation:none}
+}
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="pearlz-logo" viewBox="0 0 48 48"><defs><linearGradient id="pbadge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c211a"/><stop offset="1" stop-color="#0E0B09"/></linearGradient><radialGradient id="ppearl" cx=".36" cy=".3" r=".85"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#F7F0E4"/><stop offset="1" stop-color="#d9cdb6"/></radialGradient></defs><circle cx="24" cy="24" r="22" fill="url(#pbadge)" stroke="#E2571F" stroke-width="2.2"/><circle cx="24" cy="24" r="19.4" fill="none" stroke="#F7F0E4" stroke-opacity=".16"/><g fill="none" stroke="#F7F0E4" stroke-width="2" stroke-linecap="round" opacity=".72"><path d="M19.6 15.4c-3.2-2.6 2.6-4.4 0-7.2"/><path d="M24 13.8c-3.4-2.8 2.8-4.7 0-7.7"/><path d="M28.4 15.4c-3.2-2.6 2.6-4.4 0-7.2"/></g><path d="M14.4 33.6a9.6 9.6 0 0 0 19.2 0" fill="none" stroke="#F2B237" stroke-width="2.3" stroke-linecap="round"/><circle cx="24" cy="27.8" r="8.4" fill="url(#ppearl)"/><circle cx="20.9" cy="24.9" r="2.3" fill="#ffffff" fill-opacity=".95"/></symbol></svg>
+
+<div class="notestrip" id="noteStrip">
+  <div class="wrap notestrip-in">
+    <span class="tag">Note</span>
+    <p>The menu and prices below came off your own chalkboard photo. The parking schedule and the review cards are still placeholders. Send me the real ones and I will swap them in.</p>
+    <button type="button" id="noteHide">Hide this</button>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="brand" href="#top" aria-label="Pearlz BBQ, Haughton Louisiana, home">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#pearlz-logo"/></svg></span>
+      <span class="brand-name">PEARL<span class="z">Z</span> BBQ</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#menu">Menu</a>
+      <a href="#where">Where we are</a>
+      <a href="#catering">Catering</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn--ember btn--sm" href="#catering">Book catering</a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" aria-labelledby="hero-h1">
+  <div class="wrap hero-grid">
+    <div class="hero-copy reveal">
+      <p class="eyebrow">Haughton, Louisiana</p>
+      <h1 id="hero-h1">Good barbecue.<span class="l2">Easy to find.</span></h1>
+      <p class="sub">Ribs, brisket, chicken and sausage off the smoker, with sides and cold drinks. Plates start at $12.</p>
+      <div class="meta">
+        <span class="chip"><span class="n">Truck</span> and catering</span>
+        <span class="chip">Haughton, Bossier and Shreveport</span>
+        <span class="glow"><span class="dot" aria-hidden="true"></span>See this week</span>
+      </div>
+      <div class="cta">
+        <a class="btn btn--ember" href="#menu">See the menu</a>
+        <a class="btn btn--ghost" href="#where">Where we are parked</a>
+      </div>
+    </div>
+    <div class="hero-photo reveal">
+      <figure class="ph" data-mono="PEARLZ BBQ" style="margin:0">
+        <!-- HERO PHOTO SLOT: a shot of the truck, the smoker, or a loaded plate goes here. -->
+        <span class="slot-lbl">Your best photo goes here</span>
+      </figure>
+      <div class="floatchip" aria-hidden="true">
+        <span class="ct"><b>RIB PLATE</b><i>Two sides included</i></span>
+        <span class="pr">$15</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="coal-div" role="presentation" aria-hidden="true"></div>
+
+<section class="section" id="menu" aria-labelledby="menu-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The Menu</p>
+      <h2 id="menu-h">Everything, on one page.</h2>
+      <p>The plates, the sides and the drinks, with the prices right next to them. No app, no login, no digging.</p>
+    </div>
+
+    <div class="sample-note reveal">
+      <span class="pill">Your menu</span>
+      <p>These are the items and prices from the chalkboard on your Facebook page. If anything has changed since that photo, tell me and I will correct it.</p>
+    </div>
+
+    <div class="feature reveal">
+      <div class="feature-top">
+        <span class="badge">House favorite</span>
+        <span class="tag">The one people come back for</span>
+      </div>
+      <h3>The Rib Plate</h3>
+      <p class="desc">Smoked ribs with two sides. The plate that keeps the line long.</p>
+      <div class="feature-foot">
+        <div class="price-big"><span class="cur">$</span>15<span class="dur">Two sides included</span></div>
+        <a class="btn btn--ember" href="#catering">Order a tray of these</a>
+      </div>
+    </div>
+
+    <div class="menu-block reveal">
+      <h3>BBQ Plates</h3>
+      <p class="bnote">Every plate comes with sides.</p>
+      <div class="svc-list two-col">
+        <div class="svc"><span class="info"><span class="nm">Ribs</span></span><span class="dots" aria-hidden="true"></span><span class="pr">$15</span></div>
+        <div class="svc"><span class="info"><span class="nm">Brisket</span></span><span class="dots" aria-hidden="true"></span><span class="pr">$15</span></div>
+        <div class="svc"><span class="info"><span class="nm">Chicken</span></span><span class="dots" aria-hidden="true"></span><span class="pr">$14</span></div>
+        <div class="svc"><span class="info"><span class="nm">Sausage</span></span><span class="dots" aria-hidden="true"></span><span class="pr">$12</span></div>
+        <div class="svc"><span class="info"><span class="nm">2 Meat Combo</span><span class="det">Pick any two</span></span><span class="dots" aria-hidden="true"></span><span class="pr">$20</span></div>
+      </div>
+    </div>
+
+    <div class="menu-block reveal">
+      <h3>Sides</h3>
+      <div class="sides-grid">
+        <span class="side"><span class="dot" aria-hidden="true"></span>Baked beans</span>
+        <span class="side"><span class="dot" aria-hidden="true"></span>Potato salad</span>
+        <span class="side"><span class="dot" aria-hidden="true"></span>Corn on the cob</span>
+      </div>
+    </div>
+
+    <div class="menu-block reveal">
+      <h3>Drinks</h3>
+      <p class="bnote">Two dollars each.</p>
+      <div class="svc-list two-col">
+        <div class="svc"><span class="info"><span class="nm">Coke</span></span><span class="dots" aria-hidden="true"></span><span class="pr">$2</span></div>
+        <div class="svc"><span class="info"><span class="nm">Sprite</span></span><span class="dots" aria-hidden="true"></span><span class="pr">$2</span></div>
+        <div class="svc"><span class="info"><span class="nm">Water</span></span><span class="dots" aria-hidden="true"></span><span class="pr">$2</span></div>
+      </div>
+    </div>
+
+    <p class="finenote reveal"><b>Note:</b> anything you sell that is not on this list, send it over and it goes right in. Same with any price that has moved.</p>
+  </div>
+</section>
+
+<div class="coal-div" role="presentation" aria-hidden="true"></div>
+
+<section class="section" id="where" aria-labelledby="where-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Find the truck</p>
+      <h2 id="where-h">Where the smoker is parked.</h2>
+      <p>The spot moves. Here is the week at a glance, and the Facebook page has the day of updates.</p>
+    </div>
+    <div class="sample-note reveal">
+      <span class="pill">Sample</span>
+      <p>This schedule is a placeholder. On the live site you would update it in about a minute, and today gets highlighted on its own.</p>
+    </div>
+    <div class="two-grid">
+      <div class="panel reveal">
+        <h3>This week</h3>
+        <ul class="sched">
+          <li data-day="1"><span class="day">Monday</span><span class="spot off">Off</span></li>
+          <li data-day="2"><span class="day">Tuesday</span><span class="spot off">Off</span></li>
+          <li data-day="3"><span class="day">Wednesday</span><span class="spot off">Prepping</span></li>
+          <li data-day="4"><span class="day">Thursday</span><span class="spot"><b>Haughton, Highway 80</b>11:00 AM to 7:00 PM</span></li>
+          <li data-day="5"><span class="day">Friday</span><span class="spot"><b>Bossier City, Airline Drive</b>11:00 AM to 8:00 PM</span></li>
+          <li data-day="6"><span class="day">Saturday</span><span class="spot"><b>Haughton, Highway 80</b>11:00 AM to 8:00 PM</span></li>
+          <li data-day="0"><span class="day">Sunday</span><span class="spot off">Private events only</span></li>
+        </ul>
+      </div>
+      <div class="panel reveal">
+        <h3>Service area</h3>
+        <address class="addr"><span class="pin" aria-hidden="true">&#9679;</span> Haughton, Louisiana<br>Serving Bossier City and Shreveport</address>
+        <div style="margin-top:1.1rem">
+          <a class="btn btn--ghost btn--sm" href="https://www.facebook.com/p/Pearlz-BBQ-61551913392353/" target="_blank" rel="noopener">Day of updates on Facebook</a>
+        </div>
+        <div class="slot"><b>Phone slot.</b> Add a number here and folks can call an order in before they drive out.</div>
+        <div class="slot"><b>Map slot.</b> When the spot is steady, a live map pin goes right here.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="catering" aria-labelledby="cater-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Catering</p>
+      <h2 id="cater-h">Feeding a crowd?</h2>
+      <p>Birthdays, church events, work lunches, family reunions, weddings. Tell us the date and the headcount and we will get you a price.</p>
+    </div>
+    <div class="cater-grid">
+      <form class="panel reveal" id="caterForm" novalidate>
+        <h3>Ask about your event</h3>
+        <div class="form-row pair">
+          <div class="field"><label for="cName">Your name</label><input id="cName" name="name" type="text" autocomplete="name"></div>
+          <div class="field"><label for="cPhone">Phone</label><input id="cPhone" name="phone" type="tel" autocomplete="tel"></div>
+        </div>
+        <div class="form-row pair" style="margin-top:.9rem">
+          <div class="field"><label for="cDate">Date of the event</label><input id="cDate" name="date" type="date"></div>
+          <div class="field"><label for="cCount">How many people</label><input id="cCount" name="count" type="number" min="1" inputmode="numeric"></div>
+        </div>
+        <div class="field" style="margin-top:.9rem">
+          <label>What are you thinking</label>
+          <div class="meats">
+            <label><input type="checkbox" value="Ribs"> Ribs</label>
+            <label><input type="checkbox" value="Brisket"> Brisket</label>
+            <label><input type="checkbox" value="Chicken"> Chicken</label>
+            <label><input type="checkbox" value="Sausage"> Sausage</label>
+            <label><input type="checkbox" value="Sides only"> Sides only</label>
+          </div>
+        </div>
+        <div class="field" style="margin-top:.9rem">
+          <label for="cNotes">Anything else</label>
+          <textarea id="cNotes" name="notes" placeholder="Time, address, drop off or serve, anything we should know."></textarea>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn--ember" type="submit">Copy my request</button>
+          <a class="btn btn--ghost" id="fbSend" href="https://www.facebook.com/p/Pearlz-BBQ-61551913392353/" target="_blank" rel="noopener">Now paste it on Facebook</a>
+        </div>
+        <p class="form-hint">On the live site this goes straight to Pearlz by text or email. In this preview it copies your request so you can paste it into a message.</p>
+      </form>
+      <div class="panel reveal">
+        <h3>How catering works</h3>
+        <ul style="margin:0;padding-left:1.1rem;color:rgba(247,240,228,.86);font-size:.98rem">
+          <li style="margin-bottom:.6rem">Send the date and the headcount.</li>
+          <li style="margin-bottom:.6rem">We come back with a price and what feeds that crowd best.</li>
+          <li style="margin-bottom:.6rem">Pick drop off or served on site.</li>
+          <li>Deposit holds the date. The smoker does the rest.</li>
+        </ul>
+        <div class="slot"><b>Your words go here.</b> Tell me how you actually run catering and I will rewrite this list to match.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="coal-div" role="presentation" aria-hidden="true"></div>
+
+<section class="section" id="gallery" aria-labelledby="gal-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The Work</p>
+      <h2 id="gal-h">Show them the food.</h2>
+      <p>Six photos is all it takes. Plates, the smoker, the truck, a busy line. Send whatever you have and I will drop them in these slots.</p>
+    </div>
+    <div class="gal stg reveal">
+      <figure class="ph reveal" data-mono="PHOTO 1" style="margin:0"><span class="slot-lbl">A loaded plate</span></figure>
+      <figure class="ph reveal" data-mono="PHOTO 2" style="margin:0"><span class="slot-lbl">Ribs on the smoker</span></figure>
+      <figure class="ph reveal" data-mono="PHOTO 3" style="margin:0"><span class="slot-lbl">The truck</span></figure>
+      <figure class="ph reveal" data-mono="PHOTO 4" style="margin:0"><span class="slot-lbl">Sides</span></figure>
+      <figure class="ph reveal" data-mono="PHOTO 5" style="margin:0"><span class="slot-lbl">A catering spread</span></figure>
+      <figure class="ph reveal" data-mono="PHOTO 6" style="margin:0"><span class="slot-lbl">You at the smoker</span></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="reviews" aria-labelledby="rev-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">The Reviews</p>
+      <h2 id="rev-h">What folks say.</h2>
+      <p>Your real Facebook reviews land here. The three below are samples so you can see the shape of it.</p>
+    </div>
+    <div class="quotes">
+      <figure class="q reveal">
+        <span class="smp">Sample</span>
+        <p>Best ribs I have had around Bossier. Worth waiting in the line.</p>
+        <figcaption class="who"><span class="ini" aria-hidden="true">S</span><span><span class="nm">Sample review</span> <span class="src">replace with a real one</span></span></figcaption>
+      </figure>
+      <figure class="q reveal">
+        <span class="smp">Sample</span>
+        <p>They catered my mama birthday and everybody asked who cooked. Easy to work with.</p>
+        <figcaption class="who"><span class="ini" aria-hidden="true">S</span><span><span class="nm">Sample review</span> <span class="src">replace with a real one</span></span></figcaption>
+      </figure>
+      <figure class="q reveal">
+        <span class="smp">Sample</span>
+        <p>Mac and cheese is the real deal. Get there early.</p>
+        <figcaption class="who"><span class="ini" aria-hidden="true">S</span><span><span class="nm">Sample review</span> <span class="src">replace with a real one</span></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about" aria-labelledby="about-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <p class="eyebrow">About</p>
+        <h2 id="about-h">Pearlz BBQ.</h2>
+        <p class="lead">Barbecue out of Haughton, Louisiana.</p>
+        <p>Ribs, brisket, chicken and sausage off the smoker. Plates at the truck, trays and spreads for your event.</p>
+        <div class="slot"><b>Your story goes here.</b> Three or four sentences on how Pearlz got started, who is behind the smoker, and what you are known for. Send it in a message and I will write it in.</div>
+        <div class="about-tags" aria-hidden="true">
+          <span>Food truck</span><span>Catering</span><span>Events</span><span>Haughton, LA</span><span>Bossier and Shreveport</span>
+        </div>
+        <div class="events">
+          <p class="eyebrow" style="margin-bottom:.6rem">Out and about</p>
+          <div class="ev"><span class="yr">2025</span><span>Vendor at the 21st Annual Highland Jazz and Blues Festival in Shreveport, September 13.</span></div>
+        </div>
+      </div>
+      <div class="panel reveal" style="display:flex;flex-direction:column;justify-content:center;gap:1rem">
+        <p class="eyebrow" style="margin:0">Hungry now</p>
+        <div class="price-big" style="font-size:clamp(1.8rem,6vw,2.3rem)">Come find the truck</div>
+        <p style="color:var(--muted);margin:0">Check the week, then roll through. Big orders, send them ahead.</p>
+        <a class="btn btn--ember btn--wide" href="#where">See where we are parked</a>
+        <a class="btn btn--ghost btn--wide" href="#catering">Ask about catering</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" aria-labelledby="contact-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Contact</p>
+      <h2 id="contact-h">Get in touch.</h2>
+    </div>
+    <div class="two-grid">
+      <div class="panel reveal">
+        <h3>Reach Pearlz BBQ</h3>
+        <p style="margin:0 0 1rem;color:rgba(247,240,228,.86)">Message on Facebook, or use the catering form above and it comes straight through.</p>
+        <a class="btn btn--ember btn--wide" href="https://www.facebook.com/p/Pearlz-BBQ-61551913392353/" target="_blank" rel="noopener">Message on Facebook</a>
+        <div class="slot"><b>Phone and email slots.</b> Add either one and it shows up here and in the footer.</div>
+      </div>
+      <div class="panel reveal">
+        <h3>Good to know</h3>
+        <ul style="margin:0;padding-left:1.1rem;color:rgba(247,240,228,.86);font-size:.98rem">
+          <li style="margin-bottom:.6rem">Cash and card at the truck.</li>
+          <li style="margin-bottom:.6rem">Large orders, give us a day of notice.</li>
+          <li style="margin-bottom:.6rem">When it sells out, it sells out.</li>
+          <li>Events and festivals, ask about the vendor setup.</li>
+        </ul>
+        <div class="slot"><b>Sample list.</b> Tell me the real rules and I will put yours in.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div class="foot-top">
+      <span class="brand-name">PEARL<span class="z">Z</span> BBQ <span class="foot-loc">&#183; Haughton, LA</span></span>
+      <nav class="foot-links" aria-label="Pearlz BBQ on Facebook, and share this page">
+        <a class="fl-item" href="https://www.facebook.com/p/Pearlz-BBQ-61551913392353/" target="_blank" rel="noopener" aria-label="Facebook, Pearlz BBQ">
+          <span class="fl-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H17V3.6c-.3-.04-1.3-.13-2.47-.13-2.45 0-4.13 1.5-4.13 4.24V9.9H7.6V13h2.8v8Z"/></svg></span>
+          <span class="fl-lb">Facebook</span>
+        </a>
+        <button class="fl-item" id="shareBtn" type="button" aria-label="Share this page">
+          <span class="fl-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.08a2.9 2.9 0 0 0-2.3 1.12l-6.12-3.56a2.9 2.9 0 0 0 0-1.28l6.05-3.53A3 3 0 1 0 15 6a3 3 0 0 0 .12.82L9.05 10.35a3 3 0 1 0 0 3.3l6.13 3.58A3 3 0 1 0 18 16.08Z"/></svg></span>
+          <span class="fl-lb">Share</span>
+        </button>
+      </nav>
+    </div>
+    <p class="disclaimer">Design mockup prepared for Pearlz BBQ &#183; by Isaiah Jeremiah Smith, independent developer &#183; <a href="mailto:isaiahsmith0007@gmail.com">isaiahsmith0007@gmail.com</a> &#183; This is a free design concept, not a live business site. The menu and prices are taken from Pearlz BBQ's own posted chalkboard. The weekly schedule and the review cards are placeholders for layout only.</p>
+  </div>
+</footer>
+
+<div class="orderbar" role="region" aria-label="Catering">
+  <span class="lbl">Haughton, LA<b>Truck and catering</b></span>
+  <a class="btn btn--ember" href="#catering">Ask about catering</a>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite">Copied</div>
+
+<script>(function(){
+  var els = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  var hide = document.getElementById('noteHide');
+  if(hide){ hide.addEventListener('click', function(){ document.documentElement.classList.add('note-off'); }); }
+
+  try{
+    var open = {0:null, 1:null, 2:null, 3:null, 4:[660,1140], 5:[660,1200], 6:[660,1200]};
+    var now = new Date(), day = now.getDay(), mins = now.getHours()*60 + now.getMinutes();
+    var li = document.querySelector('.sched li[data-day="'+day+'"]');
+    if(li){
+      li.classList.add('today');
+      var s = open[day], tag = document.createElement('span');
+      tag.className = 'day-tag';
+      if(s && mins >= s[0] && mins < s[1]){ li.classList.add('is-open'); tag.textContent = 'Open now'; }
+      else { tag.textContent = 'Today'; }
+      li.querySelector('.day').appendChild(tag);
+    }
+  }catch(e){}
+
+  var toast = document.getElementById('toast');
+  function flash(msg){
+    if(!toast) return;
+    if(msg){ toast.textContent = msg; }
+    toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, 2200);
+  }
+  function copyText(text){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(text).catch(function(){ legacyCopy(text); });
+    }
+    legacyCopy(text);
+    return Promise.resolve();
+  }
+  function legacyCopy(text){
+    try{
+      var t = document.createElement('textarea');
+      t.value = text; t.setAttribute('readonly',''); t.style.position='absolute'; t.style.left='-9999px';
+      document.body.appendChild(t); t.select(); document.execCommand('copy'); document.body.removeChild(t);
+    }catch(e){}
+  }
+
+  var form = document.getElementById('caterForm');
+  if(form){
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var v = function(id){ var el = document.getElementById(id); return el && el.value ? el.value.trim() : ''; };
+      var meats = [];
+      form.querySelectorAll('.meats input:checked').forEach(function(c){ meats.push(c.value); });
+      var lines = ['Catering request for Pearlz BBQ'];
+      if(v('cName')) lines.push('Name: ' + v('cName'));
+      if(v('cPhone')) lines.push('Phone: ' + v('cPhone'));
+      if(v('cDate')) lines.push('Date: ' + v('cDate'));
+      if(v('cCount')) lines.push('People: ' + v('cCount'));
+      if(meats.length) lines.push('Looking at: ' + meats.join(', '));
+      if(v('cNotes')) lines.push('Notes: ' + v('cNotes'));
+      if(lines.length === 1){ flash('Fill in a little first'); return; }
+      copyText(lines.join('\n')).then(function(){
+        flash('Request copied');
+        var fb = document.getElementById('fbSend');
+        if(fb){ fb.classList.add('on'); }
+      });
+    });
+  }
+
+  var share = document.getElementById('shareBtn');
+  if(share){
+    share.addEventListener('click', function(){
+      var url = location.href.split('#')[0];
+      if(navigator.share){
+        navigator.share({title:'Pearlz BBQ', text:'Pearlz BBQ in Haughton, Louisiana', url:url}).catch(function(){});
+      } else {
+        copyText(url).then(function(){ flash('Link copied'); });
+      }
+    });
+  }
+})();</script>
+
+</body>
+</html>
