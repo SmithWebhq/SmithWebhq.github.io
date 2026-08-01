@@ -32,15 +32,19 @@ h3{font-size:1.3rem}
 
 /* Sections bleed into each other. No hard colour steps anywhere: every band is a
    blurred photo under a scrim that fades to the page colour at both edges. */
-section{padding:clamp(4rem,8vw,6.4rem) 0;position:relative;isolation:isolate}
+section{padding:clamp(2.6rem,5vw,4rem) 0;position:relative;isolation:isolate}
 section[id],div[id]{scroll-margin-top:82px}
 .sec-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
 .sec-bg img{width:100%;height:100%;object-fit:cover;opacity:.30;transform:scale(1.06)}
 .sec-bg::after{content:"";position:absolute;inset:0;
   background:linear-gradient(180deg,var(--ink) 0%,rgba(8,8,14,.72) 22%,rgba(8,8,14,.72) 78%,var(--ink) 100%)}
-.eyebrow{font-family:'Bungee','Baloo 2',sans-serif;font-size:.72rem;letter-spacing:.22em;
-  text-transform:uppercase;color:#0A0A10;background:var(--rain);
-  display:inline-block;padding:.42rem .85rem;border-radius:99px;margin-bottom:1rem}
+/* The rainbow used to be the header rule, every eyebrow, every pill and the footer
+   rule. An accent that appears everywhere stops being an accent. It now belongs to the
+   product only: the flavour dots and the photos. The furniture is quiet. */
+.eyebrow{font-family:'Bungee','Baloo 2',sans-serif;font-size:.7rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--pink);background:rgba(255,45,149,.11);
+  display:inline-block;padding:.4rem .85rem;border-radius:99px;margin-bottom:.9rem;
+  box-shadow:inset 0 0 0 1px rgba(255,45,149,.26)}
 .lede{color:var(--mute);font-size:1.06rem;max-width:60ch}
 
 /* ---------- client notes ---------- */
@@ -62,7 +66,8 @@ html.note-off .notestrip{display:none}
 
 /* ---------- header ---------- */
 .hdr{position:sticky;top:0;z-index:60;background:rgba(8,8,14,.78);backdrop-filter:blur(16px) saturate(150%)}
-.hdr::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--rain);opacity:.85}
+.hdr::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,45,149,.55),rgba(139,77,255,.45),transparent)}
 .hdr-in{display:flex;align-items:center;gap:1rem;padding:.55rem 0;justify-content:space-between}
 .brand{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--cream);font-weight:900}
 .brand img{height:44px;width:auto;filter:drop-shadow(0 3px 10px rgba(0,0,0,.7))}
@@ -163,12 +168,24 @@ html.note-off .notestrip{display:none}
 .tags span{background:rgba(255,255,255,.08);border-radius:99px;padding:.4rem .9rem;font-weight:800;font-size:.88rem;
   box-shadow:inset 0 0 0 1px var(--hair)}
 
-/* ---------- footer ---------- */
-footer{position:relative;padding:4rem 0 2.4rem;isolation:isolate;
-  background:linear-gradient(180deg,var(--ink),#0C0C16)}
-footer::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--rain);opacity:.55}
-.foot{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between;align-items:flex-start}
-.disclaimer{color:#6E6E8A;font-size:.78rem;margin-top:2.4rem;line-height:1.6;max-width:80ch}
+/* ---------- footer: stripped. The nav is sticky at the top, so repeating it as a
+   column stack down here was just weight. One quiet row, socials, one line of legal. */
+footer{position:relative;padding:2.4rem 0 1.9rem;isolation:isolate;
+  background:linear-gradient(180deg,var(--ink),#0B0B14)}
+footer::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.13),transparent)}
+.footnav{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 2rem;margin-bottom:1.3rem}
+.footnav a{color:var(--mute);text-decoration:none;font-weight:800;font-size:.93rem}
+.footnav a:hover{color:var(--cream)}
+.social{display:flex;justify-content:center;gap:.7rem;margin-bottom:1.4rem}
+.social a{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--cream);
+  font-weight:800;font-size:.9rem;background:rgba(255,255,255,.06);border-radius:99px;
+  padding:.5rem 1.05rem;box-shadow:inset 0 0 0 1px var(--hair);transition:transform .2s}
+.social a:hover{transform:translateY(-2px);background:rgba(255,45,149,.14)}
+.social svg{width:17px;height:17px;fill:currentColor;flex:none}
+.tagline{text-align:center;color:var(--mute);font-size:.93rem;margin:0 0 1.4rem}
+.disclaimer{color:#63637E;font-size:.74rem;margin:0;line-height:1.7;text-align:justify;
+  text-align-last:center;max-width:none}
 .reveal{opacity:0;transform:translateY(20px)}
 html.js .reveal.in{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
 html:not(.js) .reveal{opacity:1;transform:none}
@@ -411,26 +428,24 @@ html:not(.js) .reveal{opacity:1;transform:none}
 
 <footer>
   <div class="wrap">
-    <div class="foot">
-      <div style="max-width:36ch">
-        <img src="img/logo.png" alt="M&amp;D's Snack Stand" style="width:210px;margin-bottom:1rem;filter:drop-shadow(0 8px 24px rgba(0,0,0,.8))">
-        <p style="margin:0;color:var(--mute)">M&amp;D's Snack Stand, the Pickle Slushy People. Rolling around Sacaton, Arizona.</p>
-      </div>
-      <div>
-        <h3 style="font-family:'Bungee',sans-serif;font-size:.78rem;letter-spacing:.13em;color:var(--pink);margin-bottom:.8rem">On the page</h3>
-        <p style="margin:0;display:flex;flex-direction:column;gap:.4rem">
-          <a href="#top" style="color:var(--cream);text-decoration:none">Today's spot</a>
-          <a href="#slushies" style="color:var(--cream);text-decoration:none">Slushies</a>
-          <a href="#food" style="color:var(--cream);text-decoration:none">Food</a>
-          <a href="#snacks" style="color:var(--cream);text-decoration:none">Snack wall</a>
-          <a href="#events" style="color:var(--cream);text-decoration:none">Events</a>
-        </p>
-      </div>
-      <div style="max-width:26ch">
-        <h3 style="font-family:'Bungee',sans-serif;font-size:.78rem;letter-spacing:.13em;color:var(--pink);margin-bottom:.8rem">Sixteen flavors</h3>
-        <p style="margin:0;color:var(--mute);font-size:.92rem">Cherry, Chili Mango, Black Cherry, Chili Watermelon, Tropical, Tangled, The Bullet, Blackout Grape, Jolly Rancher, Starry Night, Sandia Loco, Frankenstein, Strawberry, Franky Baby, Mexican Candy, Warhead.</p>
-      </div>
+    <nav class="footnav">
+      <a href="#top">Today's spot</a>
+      <a href="#slushies">Slushies</a>
+      <a href="#food">Food</a>
+      <a href="#snacks">Snack wall</a>
+      <a href="#events">Events</a>
+    </nav>
+    <div class="social">
+      <a href="https://www.facebook.com/pickleslushyppl" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg>
+        Facebook
+      </a>
+      <a href="https://www.instagram.com/pickleslushyppl" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2Zm0 5.1A4.7 4.7 0 1 0 16.7 12 4.7 4.7 0 0 0 12 7.3Zm0 7.7A3 3 0 1 1 15 12a3 3 0 0 1-3 3Zm6-7.9a1.1 1.1 0 1 1-1.1-1.1A1.1 1.1 0 0 1 18 7.1Z"/></svg>
+        Instagram
+      </a>
     </div>
+    <p class="tagline">M&amp;D's Snack Stand, the Pickle Slushy People. Rolling around Sacaton, Arizona.</p>
     <p class="disclaimer">Design mockup prepared for M&amp;D's Snack Stand &#183; by Isaiah Jeremiah Smith, independent developer &#183; isaiahsmith0007@gmail.com &#183; This is a free design concept, not a live business site. The logo, photos, menu, prices and flavor list are M&amp;D's Snack Stand's own, taken from their own Facebook page. The photos have been brightened and sharpened, nothing has been added to or removed from any plate. The spot shown at the top of the page is the one posted on Friday, used here to show how the block works.</p>
   </div>
 </footer>
