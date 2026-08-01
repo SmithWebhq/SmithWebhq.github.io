@@ -192,6 +192,21 @@ html.note-off .notestrip{display:none}
 .gal figure.hidden-tile{display:none}
 html.gal-open .gal figure.hidden-tile{display:block}
 .galmore{display:flex;justify-content:center;margin-top:1.4rem}
+/* 42 photos is a long scroll back to the button that opened them, so while the wall is
+   expanded a second Show fewer rides along the bottom of the screen. It only appears
+   while the wall itself is on screen, and on phones it sits above the bottom nav bar,
+   never on top of it. */
+.galfloat{position:fixed;right:max(1rem,env(safe-area-inset-right));bottom:1.1rem;z-index:75;
+  opacity:0;visibility:hidden;transform:translateY(14px);
+  transition:opacity .25s,transform .25s,visibility .25s;
+  border:0;border-radius:99px;padding:.72rem 1.25rem;font-family:inherit;font-weight:900;
+  font-size:.88rem;color:#fff;cursor:pointer;
+  background:linear-gradient(120deg,var(--pink),#FF6BB5);
+  box-shadow:0 16px 36px -12px rgba(0,0,0,.85),0 0 44px -16px var(--pink)}
+html.gal-open .galfloat.on{opacity:1;visibility:visible;transform:none}
+html.lb-open .galfloat.on{opacity:0;visibility:hidden}
+@media(max-width:880px){.galfloat{bottom:calc(5.3rem + env(safe-area-inset-bottom))}}
+@media(prefers-reduced-motion:reduce){.galfloat{transition:none}}
 
 .gal figure::after{content:"\2922";position:absolute;top:.6rem;right:.7rem;width:30px;height:30px;
   display:grid;place-items:center;border-radius:50%;background:rgba(8,8,14,.62);color:#fff;
@@ -532,6 +547,8 @@ html:not(.js) .reveal{opacity:1;transform:none}
   </div>
 </footer>
 
+<button type="button" id="galFloat" class="galfloat" aria-controls="snacks">Show fewer</button>
+
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo">
   <button class="lb-close" id="lbClose" aria-label="Close">&#10005;</button>
   <button class="lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
@@ -551,16 +568,44 @@ html:not(.js) .reveal{opacity:1;transform:none}
 
   // "See all" expands the wall in place. The lightbox always carries the whole set
   // though, expanded or not, so the first tile can be paged straight through to the end.
-  var more=document.getElementById('galMore'), galSec=document.getElementById('snacks');
+  var more=document.getElementById('galMore'), galSec=document.getElementById('snacks'),
+      galFloat=document.getElementById('galFloat');
+  function setGal(open){
+    document.documentElement.classList.toggle('gal-open', open);
+    more.textContent = open ? 'Show fewer' : 'See all 42 photos';
+    more.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  function collapse(){
+    // collapsing from deep in 42 photos would strand you somewhere past the wall
+    setGal(false);
+    galSec.scrollIntoView({behavior:'smooth', block:'start'});
+    more.focus({preventScroll:true});
+  }
   if(more)more.addEventListener('click',function(){
-    var root=document.documentElement, opening=!root.classList.contains('gal-open');
-    root.classList.toggle('gal-open');
-    more.textContent = opening ? 'Show fewer' : 'See all 42 photos';
-    more.setAttribute('aria-expanded', opening ? 'true' : 'false');
-    if(opening){ var t=document.querySelectorAll('.gal figure')[8]; if(t)t.focus(); }
-    // collapsing from the bottom of 42 photos would strand you mid page
-    else { galSec.scrollIntoView({behavior:'smooth', block:'start'}); more.focus(); }
+    if(document.documentElement.classList.contains('gal-open')){ collapse(); return; }
+    setGal(true);
+    var t=document.querySelectorAll('.gal figure')[8]; if(t)t.focus({preventScroll:true});
   });
+  if(galFloat)galFloat.addEventListener('click',collapse);
+  // The floating copy rides along only while the wall is on screen AND the real button
+  // is not - two identical Show fewer buttons side by side at the end of the wall reads
+  // as a mistake. The bottom margin keeps the real one from counting as visible while it
+  // is still tucked behind the phone nav bar.
+  if(galFloat&&galSec&&more&&'IntersectionObserver' in window){
+    var wallOn=false, btnOn=false;
+    function syncFloat(){ galFloat.classList.toggle('on', wallOn && !btnOn); }
+    new IntersectionObserver(function(es){ wallOn=es[0].isIntersecting; syncFloat(); },
+      {threshold:0}).observe(galSec);
+    var narrow=window.matchMedia('(max-width:880px)'), btnIO=null;
+    function watchBtn(){
+      if(btnIO)btnIO.disconnect();
+      btnIO=new IntersectionObserver(function(es){ btnOn=es[0].isIntersecting; syncFloat(); },
+        {threshold:0, rootMargin:'0px 0px -'+(narrow.matches?92:24)+'px 0px'});
+      btnIO.observe(more.parentNode);
+    }
+    watchBtn();
+    if(narrow.addEventListener)narrow.addEventListener('change',watchBtn);
+  }
 
   // lightbox: click or Enter on a tile, arrows and Esc once open
   var figs=[].slice.call(document.querySelectorAll('.gal figure'));
@@ -573,8 +618,10 @@ html:not(.js) .reveal{opacity:1;transform:none}
     lbCount.textContent=(i+1)+' of '+figs.length;
   }
   function open(n){last=document.activeElement;show(n);lb.setAttribute('open','');
+    document.documentElement.classList.add('lb-open');
     document.body.style.overflow='hidden';document.getElementById('lbClose').focus();}
-  function close(){lb.removeAttribute('open');document.body.style.overflow='';if(last)last.focus();}
+  function close(){lb.removeAttribute('open');document.documentElement.classList.remove('lb-open');
+    document.body.style.overflow='';if(last)last.focus();}
   figs.forEach(function(f,n){
     f.addEventListener('click',function(){open(n);});
     f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(n);}});
