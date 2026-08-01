@@ -119,7 +119,7 @@ html.note-off .notestrip{display:none}
 @media(max-width:840px){.todaygrid{grid-template-columns:minmax(0,1fr)}}
 .todaylab{font-family:'Bungee',sans-serif;font-size:.74rem;letter-spacing:.2em;color:var(--lime);margin-bottom:.55rem}
 .addr{font-family:'Bungee',sans-serif;font-size:clamp(1.55rem,4.5vw,2.6rem);line-height:1.06;margin:0 0 .4rem;
-  background:linear-gradient(120deg,#fff,#FFD9EE);-webkit-background-clip:text;background-clip:text;color:transparent}
+  color:#fff}
 .cross{color:var(--mute);margin:0 0 1.15rem}
 .timechip{display:inline-flex;align-items:center;gap:.5rem;
   background:linear-gradient(120deg,var(--lime),#4FE0A8);color:#07130A;
@@ -184,6 +184,25 @@ html.note-off .notestrip{display:none}
 .gal figure{margin:0;border-radius:22px;overflow:hidden;position:relative;box-shadow:var(--soft)}
 .gal img{width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform .5s}
 .gal figure:hover img{transform:scale(1.06)}
+.gal figure{cursor:zoom-in}
+.gal figure::after{content:"\2922";position:absolute;top:.6rem;right:.7rem;width:30px;height:30px;
+  display:grid;place-items:center;border-radius:50%;background:rgba(8,8,14,.62);color:#fff;
+  font-size:.95rem;opacity:0;transition:opacity .25s}
+.gal figure:hover::after,.gal figure:focus-within::after{opacity:1}
+.lb{position:fixed;inset:0;z-index:200;display:none;place-items:center;
+  background:rgba(4,4,8,.94);backdrop-filter:blur(8px);padding:1rem}
+.lb[open]{display:grid}
+.lb img{max-width:min(94vw,1200px);max-height:82vh;width:auto;border-radius:16px;
+  box-shadow:0 40px 100px -30px #000}
+.lb figcaption{text-align:center;margin-top:.9rem;font-weight:800;color:var(--cream)}
+.lb-close,.lb-prev,.lb-next{position:fixed;background:rgba(255,255,255,.1);color:#fff;border:0;
+  border-radius:50%;width:46px;height:46px;font-size:1.4rem;cursor:pointer;display:grid;place-items:center;
+  backdrop-filter:blur(8px);font-family:inherit;line-height:1}
+.lb-close{top:1rem;right:1rem}
+.lb-prev{left:1rem;top:50%;transform:translateY(-50%)}
+.lb-next{right:1rem;top:50%;transform:translateY(-50%)}
+.lb-close:hover,.lb-prev:hover,.lb-next:hover{background:rgba(255,45,149,.4)}
+.lb-count{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);color:var(--mute);font-size:.86rem}
 .gal figcaption{position:absolute;left:0;right:0;bottom:0;padding:1.4rem .95rem .85rem;font-weight:800;font-size:.9rem;
   background:linear-gradient(180deg,transparent,rgba(0,0,0,.85))}
 
@@ -402,14 +421,14 @@ html:not(.js) .reveal{opacity:1;transform:none}
       <p class="lede">Candy, chips, frozen stuff. Homemade sandwich cookies too, confetti and birthday cake flavor, box of six for $6.</p>
     </div>
     <div class="gal">
-      <figure class="reveal"><img src="img/candy-wall.jpg" alt="Trays of pickle candy and snacks"><figcaption>Pickle candy &amp; sours</figcaption></figure>
-      <figure class="reveal"><img src="img/chip-wall.jpg" alt="Stacks of chip bags"><figcaption>Chips</figcaption></figure>
-      <figure class="reveal"><img src="img/frozen-treats.jpg" alt="Barq's floats, ICEE and ice cream sandwiches"><figcaption>Floats, ICEE &amp; sandwiches</figcaption></figure>
-      <figure class="reveal"><img src="img/prep-cups.jpg" alt="Rows of prepared slushy cups"><figcaption>Ready to go</figcaption></figure>
-      <figure class="reveal"><img src="img/hulk-smash.jpg" alt="A slushy cup labeled Hulk Smash"><figcaption>The Hulk Smash</figcaption></figure>
-      <figure class="reveal"><img src="img/taco-salad.jpg" alt="Taco salad with cheese and tomato"><figcaption>Taco salad</figcaption></figure>
-      <figure class="reveal"><img src="img/slushy-tray.jpg" alt="Tray of colorful slushies"><figcaption>Straight off the tray</figcaption></figure>
-      <figure class="reveal"><img src="img/prep-tray.jpg" alt="Overhead view of slushy cups"><figcaption>Topped and stacked</figcaption></figure>
+      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Pickle candy &amp; sours"><img src="img/candy-wall.jpg" alt="Trays of pickle candy and snacks" loading="lazy" decoding="async"><figcaption>Pickle candy &amp; sours</figcaption></figure>
+      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Chips"><img src="img/chip-wall.jpg" alt="Stacks of chip bags" loading="lazy" decoding="async"><figcaption>Chips</figcaption></figure>
+      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Floats, ICEE &amp; sandwiches"><img src="img/frozen-treats.jpg" alt="Barq's floats, ICEE and ice cream sandwiches" loading="lazy" decoding="async"><figcaption>Floats, ICEE &amp; sandwiches</figcaption></figure>
+      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Ready to go"><img src="img/prep-cups.jpg" alt="Rows of prepared slushy cups" loading="lazy" decoding="async"><figcaption>Ready to go</figcaption></figure>
+      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: The Hulk Smash"><img src="img/hulk-smash.jpg" alt="A slushy cup labeled Hulk Smash" loading="lazy" decoding="async"><figcaption>The Hulk Smash</figcaption></figure>
+      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Taco salad"><img src="img/taco-salad.jpg" alt="Taco salad with cheese and tomato" loading="lazy" decoding="async"><figcaption>Taco salad</figcaption></figure>
+      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Straight off the tray"><img src="img/slushy-tray.jpg" alt="Tray of colorful slushies" loading="lazy" decoding="async"><figcaption>Straight off the tray</figcaption></figure>
+      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Topped and stacked"><img src="img/prep-tray.jpg" alt="Overhead view of slushy cups" loading="lazy" decoding="async"><figcaption>Topped and stacked</figcaption></figure>
     </div>
   </div>
 </section>
@@ -477,6 +496,14 @@ html:not(.js) .reveal{opacity:1;transform:none}
   </div>
 </footer>
 
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo">
+  <button class="lb-close" id="lbClose" aria-label="Close">&#10005;</button>
+  <button class="lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+  <button class="lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+  <figure style="margin:0"><img id="lbImg" src="" alt=""><figcaption id="lbCap"></figcaption></figure>
+  <span class="lb-count" id="lbCount"></span>
+</div>
+
 <script>
 (function(){
   var hide=document.getElementById('noteHide');
@@ -485,8 +512,39 @@ html:not(.js) .reveal{opacity:1;transform:none}
     es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
   },{rootMargin:'0px 0px -6% 0px',threshold:.04});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+  // lightbox: click or Enter on a tile, arrows and Esc once open
+  var figs=[].slice.call(document.querySelectorAll('.gal figure'));
+  var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),
+      lbCap=document.getElementById('lbCap'),lbCount=document.getElementById('lbCount'),i=0,last=null;
+  function show(n){
+    i=(n+figs.length)%figs.length;
+    var f=figs[i],im=f.querySelector('img');
+    lbImg.src=im.src; lbImg.alt=im.alt;
+    lbCap.textContent=f.querySelector('figcaption').textContent;
+    lbCount.textContent=(i+1)+' of '+figs.length;
+  }
+  function open(n){last=document.activeElement;show(n);lb.setAttribute('open','');
+    document.body.style.overflow='hidden';document.getElementById('lbClose').focus();}
+  function close(){lb.removeAttribute('open');document.body.style.overflow='';if(last)last.focus();}
+  figs.forEach(function(f,n){
+    f.addEventListener('click',function(){open(n);});
+    f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(n);}});
+  });
+  document.getElementById('lbClose').addEventListener('click',close);
+  document.getElementById('lbPrev').addEventListener('click',function(){show(i-1);});
+  document.getElementById('lbNext').addEventListener('click',function(){show(i+1);});
+  lb.addEventListener('click',function(e){if(e.target===lb)close();});
+  document.addEventListener('keydown',function(e){
+    if(!lb.hasAttribute('open'))return;
+    if(e.key==='Escape')close();
+    if(e.key==='ArrowLeft')show(i-1);
+    if(e.key==='ArrowRight')show(i+1);
+  });
 })();
 </script>
+
+
 <nav class="botnav" aria-label="Sections">
   <div class="botnav-in">
     <a href="#top">Today</a>
