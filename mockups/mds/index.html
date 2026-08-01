@@ -192,7 +192,7 @@ html.note-off .notestrip{display:none}
 .gal figure.hidden-tile{display:none}
 html.gal-open .gal figure.hidden-tile{display:block}
 .galmore{display:flex;justify-content:center;margin-top:1.4rem}
-html.gal-open .galmore{display:none}
+
 .gal figure::after{content:"\2922";position:absolute;top:.6rem;right:.7rem;width:30px;height:30px;
   display:grid;place-items:center;border-radius:50%;background:rgba(8,8,14,.62);color:#fff;
   font-size:.95rem;opacity:0;transition:opacity .25s}
@@ -465,7 +465,7 @@ html:not(.js) .reveal{opacity:1;transform:none}
       <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Open photo" data-full="img/gal/g41.jpg"><img src="img/gal/g41t.jpg" alt="Cream on top" loading="lazy" decoding="async"></figure>
       <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Open photo" data-full="img/gal/g42.jpg"><img src="img/gal/g42t.jpg" alt="Strawberry and whip" loading="lazy" decoding="async"></figure>
     </div>
-    <div class="galmore"><button type="button" id="galMore" class="btn btn--ghost">See all 42 photos</button></div>
+    <div class="galmore"><button type="button" id="galMore" class="btn btn--ghost" aria-expanded="false" aria-controls="snacks">See all 42 photos</button></div>
   </div>
 </section>
 
@@ -551,10 +551,15 @@ html:not(.js) .reveal{opacity:1;transform:none}
 
   // "See all" expands the wall in place. The lightbox always carries the whole set
   // though, expanded or not, so the first tile can be paged straight through to the end.
-  var more=document.getElementById('galMore');
+  var more=document.getElementById('galMore'), galSec=document.getElementById('snacks');
   if(more)more.addEventListener('click',function(){
-    document.documentElement.classList.add('gal-open');
-    var t=document.querySelectorAll('.gal figure')[8]; if(t)t.focus();
+    var root=document.documentElement, opening=!root.classList.contains('gal-open');
+    root.classList.toggle('gal-open');
+    more.textContent = opening ? 'Show fewer' : 'See all 42 photos';
+    more.setAttribute('aria-expanded', opening ? 'true' : 'false');
+    if(opening){ var t=document.querySelectorAll('.gal figure')[8]; if(t)t.focus(); }
+    // collapsing from the bottom of 42 photos would strand you mid page
+    else { galSec.scrollIntoView({behavior:'smooth', block:'start'}); more.focus(); }
   });
 
   // lightbox: click or Enter on a tile, arrows and Esc once open
