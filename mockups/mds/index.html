@@ -185,6 +185,10 @@ html.note-off .notestrip{display:none}
 .gal img{width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform .5s}
 .gal figure:hover img{transform:scale(1.06)}
 .gal figure{cursor:zoom-in}
+.gal figure.hidden-tile{display:none}
+html.gal-open .gal figure.hidden-tile{display:block}
+.galmore{display:flex;justify-content:center;margin-top:1.4rem}
+html.gal-open .galmore{display:none}
 .gal figure::after{content:"\2922";position:absolute;top:.6rem;right:.7rem;width:30px;height:30px;
   display:grid;place-items:center;border-radius:50%;background:rgba(8,8,14,.62);color:#fff;
   font-size:.95rem;opacity:0;transition:opacity .25s}
@@ -255,7 +259,7 @@ html:not(.js) .reveal{opacity:1;transform:none}
     <nav class="nav">
       <a href="#slushies">Slushies</a>
       <a href="#food">Food</a>
-      <a href="#snacks">Snack Wall</a>
+      <a href="#snacks">Photos</a>
       <a href="#events">Events</a>
       <a href="#find">Find Us</a>
     </nav>
@@ -416,20 +420,55 @@ html:not(.js) .reveal{opacity:1;transform:none}
   <img class="deco" src="img/icon-nachos.png" alt="" aria-hidden="true" style="right:-8%;top:4%;width:min(33vw,460px);opacity:.24;transform:rotate(-14deg)">
   <div class="wrap">
     <div class="reveal">
-      <span class="eyebrow">Plus everything else</span>
-      <h2>The snack wall.</h2>
-      <p class="lede">Candy, chips, frozen stuff. Homemade sandwich cookies too, confetti and birthday cake flavor, box of six for $6.</p>
+      <span class="eyebrow">The photo wall</span>
+      <h2>Check out the food.</h2>
+      <p class="lede">Forty two of them. Tap any photo to open it full size and page through the rest. Homemade sandwich cookies too, confetti and birthday cake flavor, box of six for $6.</p>
     </div>
     <div class="gal">
-      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Pickle candy &amp; sours"><img src="img/candy-wall.jpg" alt="Trays of pickle candy and snacks" loading="lazy" decoding="async"><figcaption>Pickle candy &amp; sours</figcaption></figure>
-      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Chips"><img src="img/chip-wall.jpg" alt="Stacks of chip bags" loading="lazy" decoding="async"><figcaption>Chips</figcaption></figure>
-      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Floats, ICEE &amp; sandwiches"><img src="img/frozen-treats.jpg" alt="Barq's floats, ICEE and ice cream sandwiches" loading="lazy" decoding="async"><figcaption>Floats, ICEE &amp; sandwiches</figcaption></figure>
-      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Ready to go"><img src="img/prep-cups.jpg" alt="Rows of prepared slushy cups" loading="lazy" decoding="async"><figcaption>Ready to go</figcaption></figure>
-      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: The Hulk Smash"><img src="img/hulk-smash.jpg" alt="A slushy cup labeled Hulk Smash" loading="lazy" decoding="async"><figcaption>The Hulk Smash</figcaption></figure>
-      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Taco salad"><img src="img/taco-salad.jpg" alt="Taco salad with cheese and tomato" loading="lazy" decoding="async"><figcaption>Taco salad</figcaption></figure>
-      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Straight off the tray"><img src="img/slushy-tray.jpg" alt="Tray of colorful slushies" loading="lazy" decoding="async"><figcaption>Straight off the tray</figcaption></figure>
-      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Topped and stacked"><img src="img/prep-tray.jpg" alt="Overhead view of slushy cups" loading="lazy" decoding="async"><figcaption>Topped and stacked</figcaption></figure>
+      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Straight off the stand" data-full="img/gal/g01.jpg"><img src="img/gal/g01t.jpg" alt="Straight off the stand" loading="lazy" decoding="async"><figcaption>Straight off the stand</figcaption></figure>
+      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Layered to the top" data-full="img/gal/g02.jpg"><img src="img/gal/g02t.jpg" alt="Layered to the top" loading="lazy" decoding="async"><figcaption>Layered to the top</figcaption></figure>
+      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Loaded tacos" data-full="img/gal/g03.jpg"><img src="img/gal/g03t.jpg" alt="Loaded tacos" loading="lazy" decoding="async"><figcaption>Loaded tacos</figcaption></figure>
+      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Chocolate strawberries" data-full="img/gal/g04.jpg"><img src="img/gal/g04t.jpg" alt="Chocolate strawberries" loading="lazy" decoding="async"><figcaption>Chocolate strawberries</figcaption></figure>
+      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Name your own" data-full="img/gal/g05.jpg"><img src="img/gal/g05t.jpg" alt="Name your own" loading="lazy" decoding="async"><figcaption>Name your own</figcaption></figure>
+      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Nachos, all of them" data-full="img/gal/g06.jpg"><img src="img/gal/g06t.jpg" alt="Nachos, all of them" loading="lazy" decoding="async"><figcaption>Nachos, all of them</figcaption></figure>
+      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Red chili frybread" data-full="img/gal/g07.jpg"><img src="img/gal/g07t.jpg" alt="Red chili frybread" loading="lazy" decoding="async"><figcaption>Red chili frybread</figcaption></figure>
+      <figure class="reveal" tabindex="0" role="button" aria-label="Enlarge: Pick your colors" data-full="img/gal/g08.jpg"><img src="img/gal/g08t.jpg" alt="Pick your colors" loading="lazy" decoding="async"><figcaption>Pick your colors</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Super nachos" data-full="img/gal/g09.jpg"><img src="img/gal/g09t.jpg" alt="Super nachos" loading="lazy" decoding="async"><figcaption>Super nachos</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Topped and ready" data-full="img/gal/g10.jpg"><img src="img/gal/g10t.jpg" alt="Topped and ready" loading="lazy" decoding="async"><figcaption>Topped and ready</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Strawberries and cream" data-full="img/gal/g11.jpg"><img src="img/gal/g11t.jpg" alt="Strawberries and cream" loading="lazy" decoding="async"><figcaption>Strawberries and cream</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: The Hulk Smash" data-full="img/gal/g12.jpg"><img src="img/gal/g12t.jpg" alt="The Hulk Smash" loading="lazy" decoding="async"><figcaption>The Hulk Smash</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Chamoy and candy" data-full="img/gal/g13.jpg"><img src="img/gal/g13t.jpg" alt="Chamoy and candy" loading="lazy" decoding="async"><figcaption>Chamoy and candy</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Loaded dog" data-full="img/gal/g14.jpg"><img src="img/gal/g14t.jpg" alt="Loaded dog" loading="lazy" decoding="async"><figcaption>Loaded dog</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Dog and chips" data-full="img/gal/g15.jpg"><img src="img/gal/g15t.jpg" alt="Dog and chips" loading="lazy" decoding="async"><figcaption>Dog and chips</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Beans, cheese, frybread" data-full="img/gal/g16.jpg"><img src="img/gal/g16t.jpg" alt="Beans, cheese, frybread" loading="lazy" decoding="async"><figcaption>Beans, cheese, frybread</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Cold and red" data-full="img/gal/g17.jpg"><img src="img/gal/g17t.jpg" alt="Cold and red" loading="lazy" decoding="async"><figcaption>Cold and red</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Jalapenos on top" data-full="img/gal/g18.jpg"><img src="img/gal/g18t.jpg" alt="Jalapenos on top" loading="lazy" decoding="async"><figcaption>Jalapenos on top</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Cups lined up" data-full="img/gal/g19.jpg"><img src="img/gal/g19t.jpg" alt="Cups lined up" loading="lazy" decoding="async"><figcaption>Cups lined up</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: The Valley Oop" data-full="img/gal/g20.jpg"><img src="img/gal/g20t.jpg" alt="The Valley Oop" loading="lazy" decoding="async"><figcaption>The Valley Oop</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Gummies and chamoy" data-full="img/gal/g21.jpg"><img src="img/gal/g21t.jpg" alt="Gummies and chamoy" loading="lazy" decoding="async"><figcaption>Gummies and chamoy</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Taco plate" data-full="img/gal/g22.jpg"><img src="img/gal/g22t.jpg" alt="Taco plate" loading="lazy" decoding="async"><figcaption>Taco plate</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Ready to go" data-full="img/gal/g23.jpg"><img src="img/gal/g23t.jpg" alt="Ready to go" loading="lazy" decoding="async"><figcaption>Ready to go</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Indian taco" data-full="img/gal/g24.jpg"><img src="img/gal/g24t.jpg" alt="Indian taco" loading="lazy" decoding="async"><figcaption>Indian taco</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Cheese on everything" data-full="img/gal/g25.jpg"><img src="img/gal/g25t.jpg" alt="Cheese on everything" loading="lazy" decoding="async"><figcaption>Cheese on everything</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Two at a time" data-full="img/gal/g26.jpg"><img src="img/gal/g26t.jpg" alt="Two at a time" loading="lazy" decoding="async"><figcaption>Two at a time</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Tajin on the rim" data-full="img/gal/g27.jpg"><img src="img/gal/g27t.jpg" alt="Tajin on the rim" loading="lazy" decoding="async"><figcaption>Tajin on the rim</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Combo plate" data-full="img/gal/g28.jpg"><img src="img/gal/g28t.jpg" alt="Combo plate" loading="lazy" decoding="async"><figcaption>Combo plate</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Piled high" data-full="img/gal/g29.jpg"><img src="img/gal/g29t.jpg" alt="Piled high" loading="lazy" decoding="async"><figcaption>Piled high</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Powdered frybread" data-full="img/gal/g30.jpg"><img src="img/gal/g30t.jpg" alt="Powdered frybread" loading="lazy" decoding="async"><figcaption>Powdered frybread</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Candy trays" data-full="img/gal/g31.jpg"><img src="img/gal/g31t.jpg" alt="Candy trays" loading="lazy" decoding="async"><figcaption>Candy trays</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Drizzled" data-full="img/gal/g32.jpg"><img src="img/gal/g32t.jpg" alt="Drizzled" loading="lazy" decoding="async"><figcaption>Drizzled</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Frybread and beans" data-full="img/gal/g33.jpg"><img src="img/gal/g33t.jpg" alt="Frybread and beans" loading="lazy" decoding="async"><figcaption>Frybread and beans</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Sweet and dusted" data-full="img/gal/g34.jpg"><img src="img/gal/g34t.jpg" alt="Sweet and dusted" loading="lazy" decoding="async"><figcaption>Sweet and dusted</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Pickles, obviously" data-full="img/gal/g35.jpg"><img src="img/gal/g35t.jpg" alt="Pickles, obviously" loading="lazy" decoding="async"><figcaption>Pickles, obviously</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Chamoy by the tray" data-full="img/gal/g36.jpg"><img src="img/gal/g36t.jpg" alt="Chamoy by the tray" loading="lazy" decoding="async"><figcaption>Chamoy by the tray</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Dipped and skewered" data-full="img/gal/g37.jpg"><img src="img/gal/g37t.jpg" alt="Dipped and skewered" loading="lazy" decoding="async"><figcaption>Dipped and skewered</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Two tall ones" data-full="img/gal/g38.jpg"><img src="img/gal/g38t.jpg" alt="Two tall ones" loading="lazy" decoding="async"><figcaption>Two tall ones</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Bananas and caramel" data-full="img/gal/g39.jpg"><img src="img/gal/g39t.jpg" alt="Bananas and caramel" loading="lazy" decoding="async"><figcaption>Bananas and caramel</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Trays out" data-full="img/gal/g40.jpg"><img src="img/gal/g40t.jpg" alt="Trays out" loading="lazy" decoding="async"><figcaption>Trays out</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Cream on top" data-full="img/gal/g41.jpg"><img src="img/gal/g41t.jpg" alt="Cream on top" loading="lazy" decoding="async"><figcaption>Cream on top</figcaption></figure>
+      <figure class="reveal hidden-tile" tabindex="0" role="button" aria-label="Enlarge: Strawberry and whip" data-full="img/gal/g42.jpg"><img src="img/gal/g42t.jpg" alt="Strawberry and whip" loading="lazy" decoding="async"><figcaption>Strawberry and whip</figcaption></figure>
     </div>
+    <div class="galmore"><button type="button" id="galMore" class="btn btn--ghost">See all 42 photos</button></div>
   </div>
 </section>
 
@@ -513,6 +552,14 @@ html:not(.js) .reveal{opacity:1;transform:none}
   },{rootMargin:'0px 0px -6% 0px',threshold:.04});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 
+  // "See all" expands the wall in place. The lightbox always carries the whole set
+  // though, expanded or not, so the first tile can be paged straight through to the end.
+  var more=document.getElementById('galMore');
+  if(more)more.addEventListener('click',function(){
+    document.documentElement.classList.add('gal-open');
+    var t=document.querySelectorAll('.gal figure')[8]; if(t)t.focus();
+  });
+
   // lightbox: click or Enter on a tile, arrows and Esc once open
   var figs=[].slice.call(document.querySelectorAll('.gal figure'));
   var lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),
@@ -520,7 +567,7 @@ html:not(.js) .reveal{opacity:1;transform:none}
   function show(n){
     i=(n+figs.length)%figs.length;
     var f=figs[i],im=f.querySelector('img');
-    lbImg.src=im.src; lbImg.alt=im.alt;
+    lbImg.src=f.getAttribute('data-full')||im.src; lbImg.alt=im.alt;
     lbCap.textContent=f.querySelector('figcaption').textContent;
     lbCount.textContent=(i+1)+' of '+figs.length;
   }
@@ -550,7 +597,7 @@ html:not(.js) .reveal{opacity:1;transform:none}
     <a href="#top">Today</a>
     <a href="#slushies">Slushies</a>
     <a href="#food">Food</a>
-    <a href="#snacks">Snacks</a>
+    <a href="#snacks">Photos</a>
     <a href="#find">Find us</a>
   </div>
 </nav>
