@@ -12,8 +12,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Barlow:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#0B0A0E; --ink2:#141019; --paper:#F6F1E6; --mute:#B9B2C4;
-  --gold:#FFC72C; --purple:#9B4DE0; --green:#3BB264; --red:#C8102E;
+  --ink:#0B0A0E; --ink2:#170A0C; --paper:#F6F1E6; --mute:#B9B2C4;
+  --red:#E01625; --redlite:#FF5A66; --reddeep:#7A0E17;
   --soft:0 24px 60px -28px rgba(0,0,0,.9);
 }
 *{box-sizing:border-box}
@@ -30,16 +30,15 @@ h1,h2{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.01em;
   text-transform:uppercase;line-height:.96;margin:0}
 h1{font-size:clamp(2.9rem,9vw,5.6rem)}
 h2{font-size:clamp(1.9rem,4.6vw,3rem)}
-.eyebrow{font-family:'Permanent Marker',cursive;color:var(--gold);font-size:1.02rem;
+.eyebrow{font-family:'Permanent Marker',cursive;color:var(--redlite);font-size:1.02rem;
   letter-spacing:.04em;margin:0 0 .55rem}
 .lead{color:var(--mute);max-width:56ch;font-size:1.06rem}
 
-/* bead-string divider, purple gold green like the shirts */
+/* bead divider, red and white like the seal */
 .beads{display:flex;gap:.55rem;justify-content:center;padding:.2rem 0;list-style:none;margin:1.6rem 0 0}
 .beads i{width:11px;height:11px;border-radius:50%;display:block}
-.beads i:nth-child(3n+1){background:var(--purple)}
-.beads i:nth-child(3n+2){background:var(--gold)}
-.beads i:nth-child(3n){background:var(--green)}
+.beads i:nth-child(2n+1){background:var(--red)}
+.beads i:nth-child(2n){background:var(--paper)}
 
 /* ---------- client notes ---------- */
 .notestrip{background:linear-gradient(90deg,#FF2D95,#8B4DFF);color:#fff;font-size:.95rem}
@@ -62,14 +61,14 @@ html.note-off .notestrip{display:none}
 .hdr{position:sticky;top:0;z-index:60;background:rgba(11,10,14,.92);
   backdrop-filter:blur(14px) saturate(140%)}
 .hdr::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
-  background:linear-gradient(90deg,var(--purple),var(--gold),var(--green),var(--red))}
+  background:linear-gradient(90deg,var(--reddeep),var(--red),var(--reddeep))}
 .hdr-in{display:flex;align-items:center;gap:.7rem;padding:.55rem 0}
 .brand{display:flex;align-items:center;gap:.65rem;text-decoration:none}
 .brand img{height:46px;width:46px;border-radius:50%;object-fit:cover;background:#fff;
   box-shadow:0 0 0 2px #fff}
 .brand span{display:flex;flex-direction:column;line-height:1.04}
 .brand b{font-family:'Anton',sans-serif;font-weight:400;font-size:1.02rem;letter-spacing:.03em}
-.brand i{font-style:normal;font-size:.72rem;color:var(--gold);font-weight:600;letter-spacing:.14em}
+.brand i{font-style:normal;font-size:.72rem;color:var(--redlite);font-weight:600;letter-spacing:.14em}
 .nav{margin-left:auto;display:flex;gap:1.1rem;font-weight:600;font-size:.92rem}
 .nav a{text-decoration:none;color:var(--mute)}
 .nav a:hover{color:#fff}
@@ -78,11 +77,11 @@ html.note-off .notestrip{display:none}
   background:rgba(11,10,14,.94);backdrop-filter:blur(14px);
   padding:.5rem max(.5rem,env(safe-area-inset-left)) calc(.5rem + env(safe-area-inset-bottom))}
 .botnav::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--purple),var(--gold),var(--green),var(--red))}
+  background:linear-gradient(90deg,var(--reddeep),var(--red),var(--reddeep))}
 .botnav-in{display:flex;justify-content:space-between;gap:.15rem;max-width:560px;margin-inline:auto}
 .botnav a{flex:1;text-align:center;color:var(--mute);text-decoration:none;font-weight:700;
   font-size:.78rem;padding:.5rem .2rem;border-radius:12px;white-space:nowrap}
-.botnav a:active{background:rgba(255,199,44,.18);color:#fff}
+.botnav a:active{background:rgba(224,22,37,.22);color:#fff}
 @media(max-width:880px){.botnav{display:block} body{padding-bottom:4.4rem}}
 
 /* ---------- buttons ---------- */
@@ -90,7 +89,7 @@ html.note-off .notestrip{display:none}
 .btn{display:inline-flex;align-items:center;gap:.5rem;border-radius:14px;padding:.8rem 1.35rem;
   font-weight:800;font-size:1rem;text-decoration:none;border:0;cursor:pointer;
   transition:transform .15s}
-.btn--gold{background:var(--gold);color:#161007;box-shadow:0 0 44px -14px var(--gold)}
+.btn--gold{background:var(--red);color:#fff;box-shadow:0 0 44px -14px var(--red)}
 .btn--ghost{color:var(--paper);background:rgba(255,255,255,.07);
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
 .btn:hover{transform:translateY(-2px)}
@@ -100,10 +99,10 @@ html.note-off .notestrip{display:none}
 .hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);
   gap:clamp(1.4rem,4vw,3rem);align-items:center}
 @media(max-width:880px){.hero-grid{grid-template-columns:1fr}}
-.hero h1 em{font-style:normal;color:var(--gold)}
+.hero h1 em{font-style:normal;color:var(--red)}
 .hero .knuck{font-family:'Permanent Marker',cursive;font-size:clamp(1.15rem,3vw,1.6rem);
   color:var(--paper);margin:.9rem 0 0;transform:rotate(-1.2deg)}
-.hero .knuck s{text-decoration:none;background:linear-gradient(90deg,var(--purple),var(--red));
+.hero .knuck s{text-decoration:none;background:linear-gradient(90deg,var(--red),var(--redlite));
   -webkit-background-clip:text;background-clip:text;color:transparent}
 .stack{position:relative;min-height:380px}
 .snap{background:#fff;padding:9px 9px 30px;border-radius:4px;box-shadow:var(--soft);
@@ -114,29 +113,30 @@ html.note-off .notestrip{display:none}
   box-shadow:0 1px 2px rgba(0,0,0,.25)}
 .stack .s1{left:0;top:6%;transform:rotate(-4deg);z-index:2}
 .stack .s2{right:0;top:34%;transform:rotate(3deg);z-index:3}
-.stack .mark{position:absolute;left:-2%;bottom:-2%;width:min(44%,200px);transform:rotate(-6deg);
-  z-index:4;border-radius:14px;box-shadow:var(--soft)}
+.stack .mark{position:absolute;left:-2%;bottom:-2%;width:min(40%,180px);transform:rotate(-8deg);
+  z-index:4;border-radius:50%;box-shadow:0 0 0 6px #fff,0 0 70px -8px var(--red),var(--soft)}
 @media(max-width:880px){.stack{min-height:340px;margin-top:.6rem}}
 
 /* ---------- brick wall sections ---------- */
 .brick{background:
-  linear-gradient(rgba(11,10,14,.28),rgba(11,10,14,.28)),
-  repeating-linear-gradient(0deg,#1B1220 0 44px,#231627 44px 46px),
-  repeating-linear-gradient(90deg,rgba(35,22,39,.9) 0 2px,transparent 2px 118px),
-  #1B1220}
+  linear-gradient(rgba(11,10,14,.16),rgba(11,10,14,.16)),
+  repeating-linear-gradient(0deg,#301114 0 44px,#3E181C 44px 46px),
+  repeating-linear-gradient(90deg,rgba(62,24,28,.95) 0 2px,transparent 2px 118px),
+  #301114}
 
 /* ---------- next show ---------- */
 .show-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);
   gap:clamp(1.4rem,4vw,2.6rem);align-items:start}
 @media(max-width:880px){.show-grid{grid-template-columns:1fr}}
 .gigcard{background:var(--ink2);border-radius:22px;padding:1.5rem;box-shadow:var(--soft),
-  inset 0 0 0 1px rgba(255,199,44,.25)}
+  inset 0 0 0 1px rgba(224,22,37,.45)}
 .gigcard .when{display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap}
-.gigcard .date{font-family:'Anton',sans-serif;font-size:clamp(2.6rem,7vw,4rem);color:var(--gold)}
+.gigcard .date{font-family:'Anton',sans-serif;font-size:clamp(2.6rem,7vw,4rem);color:var(--red)}
 .gigcard .name{font-size:1.3rem;font-weight:800}
 .gigcard .meta{color:var(--mute);margin-top:.35rem}
+.wl{font-family:'Permanent Marker',cursive;color:var(--redlite);font-weight:400}
 .gigcard .free{display:inline-block;margin-top:.9rem;font-family:'Permanent Marker',cursive;
-  color:var(--green);font-size:1.05rem;transform:rotate(-1deg)}
+  color:var(--paper);font-size:1.05rem;transform:rotate(-1deg)}
 .nextrows{margin-top:1.1rem;border-top:1px dashed rgba(255,255,255,.2);padding-top:1rem;
   color:var(--mute);font-size:.95rem}
 .flyersnap{background:#fff;padding:9px 9px 26px;border-radius:4px;box-shadow:var(--soft);
@@ -152,9 +152,9 @@ html.note-off .notestrip{display:none}
 @media(max-width:880px){.sound-grid{grid-template-columns:1fr}}
 .sound img{border-radius:20px;box-shadow:var(--soft);aspect-ratio:1/1;object-fit:cover;width:100%}
 .videoph{margin-top:1.2rem;aspect-ratio:16/9;border-radius:20px;display:grid;place-items:center;
-  border:2px dashed rgba(255,199,44,.5);background:rgba(255,255,255,.03);color:var(--mute)}
-.videoph .play{width:74px;height:74px;border-radius:50%;background:var(--gold);display:grid;
-  place-items:center;color:#161007;font-size:1.6rem;box-shadow:0 0 60px -10px var(--gold)}
+  border:2px dashed rgba(224,22,37,.55);background:rgba(255,255,255,.03);color:var(--mute)}
+.videoph .play{width:74px;height:74px;border-radius:50%;background:var(--red);display:grid;
+  place-items:center;color:#fff;font-size:1.6rem;box-shadow:0 0 60px -10px var(--red)}
 .videoph p{margin:.8rem 0 0;font-size:.92rem}
 
 /* ---------- band ---------- */
@@ -167,10 +167,8 @@ html.note-off .notestrip{display:none}
 .horns{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.2rem;padding:0;list-style:none}
 .horns li{font-weight:700;font-size:.9rem;padding:.42rem .85rem;border-radius:99px;
   background:rgba(255,255,255,.06);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
-.horns li:nth-child(4n+1){color:var(--gold)}
-.horns li:nth-child(4n+2){color:var(--purple)}
-.horns li:nth-child(4n+3){color:var(--green)}
-.horns li:nth-child(4n){color:#FF7A8A}
+.horns li:nth-child(2n+1){color:var(--redlite)}
+.horns li:nth-child(2n){color:var(--paper)}
 
 /* ---------- photo wall ---------- */
 .wall{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));
@@ -189,9 +187,9 @@ html.note-off .notestrip{display:none}
 
 /* ---------- booking ---------- */
 .bookcard{background:var(--ink2);border-radius:26px;padding:clamp(1.5rem,4vw,2.6rem);
-  box-shadow:var(--soft),inset 0 0 0 1px rgba(155,77,224,.3);text-align:center}
+  box-shadow:var(--soft),inset 0 0 0 1px rgba(224,22,37,.4);text-align:center}
 .bookcard .tel{font-family:'Anton',sans-serif;font-size:clamp(1.9rem,6vw,3.2rem);
-  color:var(--gold);text-decoration:none;display:inline-block;margin-top:.6rem}
+  color:var(--redlite);text-decoration:none;display:inline-block;margin-top:.6rem}
 .bookcard .sub{color:var(--mute);margin:.4rem 0 0}
 
 /* ---------- footer ---------- */
@@ -249,7 +247,7 @@ html:not(.js) .reveal{opacity:1;transform:none}
   </div>
 </header>
 
-<section class="hero" id="top">
+<section class="hero brick" id="top">
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow">Pensacola, Florida &middot; representing the 850</p>
@@ -264,7 +262,7 @@ html:not(.js) .reveal{opacity:1;transform:none}
     <div class="stack" aria-hidden="true">
       <figure class="snap s1"><img src="img/hero.jpg" alt=""></figure>
       <figure class="snap s2"><img src="img/w05.jpg" alt=""></figure>
-      <img class="mark" src="img/wordmark.jpg" alt="">
+      <img class="mark" src="img/seal.jpg" alt="">
     </div>
   </div>
   <ul class="beads wrap" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></ul>
@@ -278,7 +276,7 @@ html:not(.js) .reveal{opacity:1;transform:none}
       <div>
         <div class="gigcard reveal">
           <div class="when"><span class="date">Aug 11</span><span class="name">Bands on the Beach</span></div>
-          <p class="meta">Gulfside Pavilion, Pensacola Beach &middot; 7 to 9 PM</p>
+          <p class="meta"><b class="wl">Where:</b> Gulfside Pavilion, Pensacola Beach &nbsp;&nbsp;<b class="wl">When:</b> 7 to 9 PM</p>
           <span class="free">Free show. Bring everybody.</span>
           <div class="nextrows">Your next dates drop in here as they get booked, so this page always answers &ldquo;when can I catch them?&rdquo;</div>
         </div>
@@ -320,9 +318,9 @@ html:not(.js) .reveal{opacity:1;transform:none}
     <p class="eyebrow">The band</p>
     <h2>Ten pieces. One wall of brass.</h2>
     <div class="show-grid" style="margin-top:1.6rem">
-      <img class="reveal" src="img/gate.jpg" alt="The full band lined up at the Blue Wahoos main gate" loading="lazy">
+      <img class="reveal" src="img/band.jpg" alt="The band in their reds, posed with the drums" loading="lazy">
       <div>
-        <p class="lead reveal">Playing together since 2019, New Orleans style. From street corners and festivals to the Blue Wahoos main gate, the band shows up and the crowd follows.</p>
+        <p class="lead reveal">Playing together since 2019, New Orleans style. Red, black and white, from street corners and festival stages to the ballpark, and the crowd follows.</p>
         <ul class="horns reveal">
           <li>Trumpets</li><li>Trombones</li><li>Saxes</li><li>Sousaphone</li><li>Drums</li><li>The whole second line</li>
         </ul>
@@ -343,12 +341,11 @@ html:not(.js) .reveal{opacity:1;transform:none}
       <figure class="wsnap reveal" tabindex="0" role="button" aria-label="Open photo"><img src="img/w06.jpg" alt="Trombone raised" loading="lazy" decoding="async"></figure>
       <figure class="wsnap reveal" tabindex="0" role="button" aria-label="Open photo"><img src="img/w07.jpg" alt="Playing in the street, black and white" loading="lazy" decoding="async"></figure>
       <figure class="wsnap reveal" tabindex="0" role="button" aria-label="Open photo"><img src="img/w08.jpg" alt="9ABB shirt with the seal" loading="lazy" decoding="async"></figure>
-      <figure class="wsnap reveal" tabindex="0" role="button" aria-label="Open photo"><img src="img/w09.jpg" alt="Marching with the horns" loading="lazy" decoding="async"></figure>
-      <figure class="wsnap reveal" tabindex="0" role="button" aria-label="Open photo"><img src="img/w10.jpg" alt="Drums and sousaphone from above" loading="lazy" decoding="async"></figure>
-      <figure class="wsnap reveal" tabindex="0" role="button" aria-label="Open photo"><img src="img/w11.jpg" alt="Group photo in tie-dye" loading="lazy" decoding="async"></figure>
-      <figure class="wsnap reveal" tabindex="0" role="button" aria-label="Open photo"><img src="img/w12.jpg" alt="Playing at the ballpark gate" loading="lazy" decoding="async"></figure>
+      <figure class="wsnap reveal" tabindex="0" role="button" aria-label="Open photo"><img src="img/w09.jpg" alt="On stage in the blue light" loading="lazy" decoding="async"></figure>
+      <figure class="wsnap reveal" tabindex="0" role="button" aria-label="Open photo"><img src="img/w10.jpg" alt="Trombones in close quarters" loading="lazy" decoding="async"></figure>
+      <figure class="wsnap reveal" tabindex="0" role="button" aria-label="Open photo"><img src="img/w11.jpg" alt="Sax and sousaphone, black and white" loading="lazy" decoding="async"></figure>
+      <figure class="wsnap reveal" tabindex="0" role="button" aria-label="Open photo"><img src="img/w12.jpg" alt="Trombone and the seal up close" loading="lazy" decoding="async"></figure>
       <figure class="wsnap reveal" tabindex="0" role="button" aria-label="Open photo"><img src="img/w13.jpg" alt="The crew on the steps at night" loading="lazy" decoding="async"></figure>
-      <figure class="wsnap reveal" tabindex="0" role="button" aria-label="Open photo"><img src="img/w14.jpg" alt="Trumpet under the palms" loading="lazy" decoding="async"></figure>
       <figure class="wsnap reveal" tabindex="0" role="button" aria-label="Open photo"><img src="img/hero.jpg" alt="On stage under the lights" loading="lazy" decoding="async"></figure>
     </div>
   </div>
