@@ -16,7 +16,7 @@
   body{font-family:Georgia,'Times New Roman',serif;background:var(--paper);color:var(--text);line-height:1.55}
   h1,h2,h3,.navbrand,.btn,.chip,nav a,.showcard .d{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
   section{overflow:hidden;position:relative}
-  [id]{scroll-margin-top:84px}
+  [id]{scroll-margin-top:62px}
   img{display:block;max-width:100%}
 
   header.top{position:sticky;top:0;z-index:50;background:rgba(15,12,20,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
@@ -35,6 +35,7 @@
     nav.bottom a b{display:block;font-size:1.05rem;line-height:1;margin-bottom:.18rem}
     nav.bottom a.hot{color:var(--gold)}
     body{padding-bottom:64px}
+    [id]{scroll-margin-top:66px}
   }
 
   /* hero with real photo */
@@ -192,9 +193,8 @@
     <div class="heroimg"></div>
     <div class="heroshade"></div>
     <div class="herotext">
-      <div class="kicker">Sioux Falls, South Dakota</div>
       <h1>Etta and the Vendetta</h1>
-      <p class="tag">Soul / Funk / Rock — led by the powerful, soulful vocals of Etta McKinley.</p>
+      <p class="tag">Soul / Funk / Rock out of Sioux Falls — led by the powerful, soulful vocals of Etta McKinley.</p>
       <div class="heroctas">
         <a class="btn gold" href="#book">Book the Band</a>
         <a class="btn ghost" href="#shows">Upcoming Shows</a>
@@ -347,8 +347,8 @@
       two are our best guess — tell us if we mixed anyone up.</li>
       <li>The Aug 20 Full Circle show came from your posted flyer — confirm
       the details. Send future dates and they go up as cards.</li>
-      <li>Live photos came from your Instagram — send full-quality
-      favorites (and your photographers' names so we can credit them).</li>
+      <li>Live photos came from your Instagram — send 4–6 full-quality
+      favorites and they swap in sharp.</li>
       <li>The Facebook button uses the share link from your bio — send your
       page's direct name and we'll swap it in clean. We also found a TikTok
       under @ettabirdsings — want it listed? Same for YouTube or Bandcamp.</li>
@@ -404,6 +404,22 @@ function lbClose(){
 }
 function lbStep(d){ lbAt = (lbAt + d + lbSet.length) % lbSet.length; lbShow(); }
 document.getElementById('lb').addEventListener('click', function(e){ if(e.target === this) lbClose(); });
+// Precise anchor scrolling: land section content 24px under the header
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click', function(e){
+    var id = a.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if(!el) return;
+    e.preventDefault();
+    var header = document.querySelector('header.top');
+    var hh = header ? header.getBoundingClientRect().height : 64;
+    var pad = parseFloat(getComputedStyle(el).paddingTop) || 0;
+    var y = el.getBoundingClientRect().top + window.scrollY + pad - hh - 24;
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    history.replaceState(null, '', '#' + id);
+  });
+});
+
 document.addEventListener('keydown', function(e){
   if(!document.getElementById('lb').classList.contains('open')) return;
   if(e.key === 'Escape') lbClose();
